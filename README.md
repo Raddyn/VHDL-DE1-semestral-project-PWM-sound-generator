@@ -1,9 +1,9 @@
 # VHDL-DE1-semestral-project-PWM-sound-generator
 ## Team members
 ___
-246958 - Radoslav Tomčala -> responsible for ()
-246955 - Jaroslav Švec -> responsible for ()
-246960 - Marek Vacula -> responsible for ()
+246958 - Radoslav Tomčala -> responsible for ()\
+246955 - Jaroslav Švec -> responsible for ()\
+246960 - Marek Vacula -> responsible for ()\
 ## Description
 ___
 - To be added
