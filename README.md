@@ -8,7 +8,7 @@ ___
 - Hrubý náčrt jednotlivých bloků - zrafinovat na podorobnější top_level návrh -> RADEK, MAREK
 - Dokumentaci -> MAREK, RADEK
 
-##Links
+## Links
 - PWM controller: https://vhdlwhiz.com/pwm-controller/
 ## Team members
 ___
