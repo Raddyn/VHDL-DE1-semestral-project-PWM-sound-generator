@@ -7,6 +7,9 @@ ___
 - 7 seg. nastavení jednotlivých pozic displeje -> JARA
 - Hrubý náčrt jednotlivých bloků - zrafinovat na podorobnější top_level návrh -> RADEK, MAREK
 - Dokumentaci -> MAREK, RADEK
+
+##Links
+- PWM controller: https://vhdlwhiz.com/pwm-controller/
 ## Team members
 ___
 246958 - Radoslav Tomčala -> responsible for ()\
