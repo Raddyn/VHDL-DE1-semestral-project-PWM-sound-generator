@@ -34,5 +34,5 @@
 
 - to be added
 ## References
-
+- https://vhdlwhiz.com/pwm-controller/
 - To be added
