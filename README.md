@@ -9,7 +9,7 @@
 - Dokumentaci -> MAREK, RADEK
 
 ## Links
-- PWM controller: https://vhdlwhiz.com/pwm-controller/
+- [PWM controller](https://vhdlwhiz.com/pwm-controller/)
 ## Team members
 
 246958 - Radoslav Tomčala -> responsible for ()\
