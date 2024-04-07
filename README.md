@@ -1,12 +1,15 @@
 # VHDL-DE1-semestral-project-PWM-sound-generator
-## TODO:
+## TO-DO:
 
-- Otestovat funkci PWM, najít zdroje. -> DOMINIK
-- Ověřit funkci audio jack out (skrze constrainy) -> DOMINIK
-- Rotační enkodér -> 
-- 7 seg. nastavení jednotlivých pozic displeje -> JARA
-- Hrubý náčrt jednotlivých bloků - zrafinovat na podorobnější top_level návrh -> RADEK, MAREK
-- Dokumentaci -> MAREK, RADEK
+- Find sources, test function of PWM module -> DOMINIK
+- Test audio jack out,  configure constraints file -> DOMINIK
+- IMPORTANT! - Delegation of further tasks
+- Rotary encoder -> ?
+- Configuration of 7seg.vhd, mainly position of each display -> JARA
+- Rough sketch of hardware, algorithm flowchart, toplevel.vhd -> RADEK, MAREK
+- Documentation -> MAREK, RADEK
+- TO-DO management -> MAREK
+  
 
 ## Links
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
@@ -20,13 +23,19 @@
 
 - To be added
 ## Features
-- Natavení frekvence a střídy, přepínání pomocí swtiche
-- hodnoty se zobrazují na 7seg. displej. Přepínání pozice a inkrementace pomocí tlačítek ( později inkrementovat pomocí rotary encoderu)
-- zmapovat ledky aby ukazovali frekcvenci
+- Switch input determines if frequency or duty cycle is to be altered
+- Frequency or (and?) duty cycle displayed on 7 segment disp.
+- Current display position selected using buttons, flicker as indicator 
+- Frequency or duty cycle selected using rotary encoder (or buttons?) 
+- (optional QoL) LEDs indicate current frequency at all times
 ## Hardware
 
 - Nexys A7 50
 - Rotary encoder tbd...
+
+  Initial VERY CRUDE sketch
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/55b190b3-6be2-4799-94ce-5403db5ddbc4)
+  
 ## Software
 
 - To be added
