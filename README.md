@@ -11,7 +11,7 @@
 - TO-DO management -> MAREK
 
 ## File responsibility:
-- top_level.vhd -> MAREK
+- top_level.vhd -> MAREK, RADEK
 - mode_selector.vhd -> MAREK
 - x7seg.vhd -> JARA
 - top_x7seg.vhd -> JARA
