@@ -10,7 +10,7 @@ entity x7seg is
         an: out std_logic_vector(3 downto 0);
         dp: out std_logic
         );
-    end x7seg
+    end x7seg;
     
     
     
