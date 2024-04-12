@@ -2,13 +2,15 @@
 ## TO-DO:
 
 - Find sources, test function of PWM module -> DOMINIK
-- Test audio jack out,  configure constraints file -> DOMINIK
+- Test audio jack out -> DOMINIK
+- configure constraints file -> MAREK
 - IMPORTANT! - Delegation of further tasks
 - Rotary encoder -> ?
 - Configuration of 7seg.vhd, mainly position of each display -> JARA
 - Rough sketch of hardware, algorithm flowchart, top_level -> RADEK, MAREK
 - Documentation -> MAREK, RADEK
 - TO-DO management -> MAREK
+- schematics -> RADEK
 
 ## File responsibility:
 - top_level.vhd -> MAREK, RADEK
