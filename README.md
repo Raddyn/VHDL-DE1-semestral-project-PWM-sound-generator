@@ -6,10 +6,15 @@
 - IMPORTANT! - Delegation of further tasks
 - Rotary encoder -> ?
 - Configuration of 7seg.vhd, mainly position of each display -> JARA
-- Rough sketch of hardware, algorithm flowchart, toplevel.vhd -> RADEK, MAREK
+- Rough sketch of hardware, algorithm flowchart, top_level -> RADEK, MAREK
 - Documentation -> MAREK, RADEK
 - TO-DO management -> MAREK
-  
+
+## File responsibility:
+- top_level.vhd -> MAREK
+- mode_selector.vhd -> mode_selector.vhd
+- x7seg.vhd -> JARA
+- top_x7seg.vhd -> JARA
 
 ## Links
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
@@ -44,4 +49,4 @@
 - to be added
 ## References
 - [PWM Controller](https://vhdlwhiz.com/pwm-controller/)
-- To be added
+- 
