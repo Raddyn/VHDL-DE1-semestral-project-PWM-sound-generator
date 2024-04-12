@@ -23,6 +23,7 @@
 
 ## Links
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
+- [Constraints file](https://raw.githubusercontent.com/Digilent/digilent-xdc/master/Nexys-A7-50T-Master.xdc)
 ## Team members
 
 246958 - Radoslav Tomčala -> responsible for ()\
