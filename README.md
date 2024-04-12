@@ -12,7 +12,7 @@
 
 ## File responsibility:
 - top_level.vhd -> MAREK
-- mode_selector.vhd -> mode_selector.vhd
+- mode_selector.vhd -> MAREK
 - x7seg.vhd -> JARA
 - top_x7seg.vhd -> JARA
 
