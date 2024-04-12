@@ -11,6 +11,7 @@
 - Documentation -> MAREK, RADEK
 - TO-DO management -> MAREK
 - schematics -> RADEK
+- proof of concept on microcontoler -> RADEK
 
 ## File responsibility:
 - top_level.vhd -> MAREK, RADEK
