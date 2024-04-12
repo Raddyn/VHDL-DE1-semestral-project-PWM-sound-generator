@@ -12,7 +12,7 @@
 - TO-DO management -> MAREK
 - schematics -> RADEK
 - proof of concept on microcontoler -> RADEK
-- common BUS for top_x7seg.vhd implementation in top_level.vhd -> ?
+
 
 ## File responsibility:
 - top_level.vhd -> MAREK, RADEK
@@ -27,6 +27,7 @@
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
 - [Constraints file](https://raw.githubusercontent.com/Digilent/digilent-xdc/master/Nexys-A7-50T-Master.xdc)
 - [Project assignment](https://github.com/tomas-fryza/vhdl-course/tree/master/lab8-project)
+- [Rotary encoder](https://github.com/Yourigh/Rotary-encoder-VHDL-design)
 ## Team members
 
 246958 - Radoslav Tomčala -> responsible for ()\
