@@ -18,6 +18,8 @@
 - mode_selector.vhd -> MAREK
 - x7seg.vhd -> JARA
 - top_x7seg.vhd -> JARA
+- pwm_controller.vhd -> DOMINIK
+- jack.vhd -> DOMINIK
 
 ## Links
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
