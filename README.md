@@ -20,6 +20,7 @@
 - top_x7seg.vhd -> JARA
 - pwm_controller.vhd -> DOMINIK
 - jack.vhd -> DOMINIK
+- nexys-a7-50t.xdc -> MAREK
 
 ## Links
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
