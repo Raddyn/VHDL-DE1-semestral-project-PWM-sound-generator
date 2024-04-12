@@ -43,7 +43,7 @@
 - Nexys A7 50
 - Rotary encoder tbd...
 - CHANGE: RE signal doesn't go to frequency function, but to mode selector first
-  Initial VERY CRUDE sketch
+- Initial VERY CRUDE sketch
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/55b190b3-6be2-4799-94ce-5403db5ddbc4)
   
 ## Software
