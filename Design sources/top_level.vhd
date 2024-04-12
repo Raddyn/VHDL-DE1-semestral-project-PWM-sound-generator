@@ -13,7 +13,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity top_level is
  Port (
-    SW : in STD_LOGIC;  -- mode selector switch
+    SW_MODE : in STD_LOGIC;  -- mode selector switch
     LED: out STD_LOGIC_VECTOR (15 downto 0)
 
  
@@ -49,7 +49,7 @@ component mode_selector is
 begin
     MS: mode_selector
     port map (
-        switch => SW ,
+        switch => SW_MODE ,
         frequency_mode => frequency_enable,
         duty_cycle_mode => duty_cycle_enable
     
