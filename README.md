@@ -12,6 +12,7 @@
 - TO-DO management -> MAREK
 - schematics -> RADEK
 - proof of concept on microcontoler -> RADEK
+- common BUS for top_x7seg.vhd implementation in top_level.vhd -> ?
 
 ## File responsibility:
 - top_level.vhd -> MAREK, RADEK
