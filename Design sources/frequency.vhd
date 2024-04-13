@@ -84,6 +84,6 @@ begin
     end process;
 
     freq_bin <= std_logic_vector(to_unsigned(int_freq, 15));
-
+-- TODO: Make the frequency more readable for the next stage, maybe a 4 bit std_logic_vector for every decade
 end behavioral;
 
