@@ -11,11 +11,12 @@
 - Documentation -> MAREK, RADEK
 - TO-DO management -> MAREK
 - schematics -> RADEK
-- proof of concept on microcontoler -> RADEK
+
 
 
 ## File responsibility:
 - top_level.vhd -> MAREK, RADEK
+- frequency.vhd -> RADEK
 - mode_selector.vhd -> MAREK
 - x7seg.vhd -> JARA
 - top_x7seg.vhd -> JARA
