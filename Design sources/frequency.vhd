@@ -8,12 +8,17 @@ entity frequency is
         clear : in    std_logic;                    --! Clear the display
         en : in   std_logic;                    --! Enable the display
 --        clk : in      std_logic;                    --! Clock signal
-        freq_bin : out    std_logic_vector(14 downto 0);  --! Frequency of the display
+--        freq_bin : out    std_logic_vector(14 downto 0);  --! Frequency of the display
         pos : out     std_logic_vector(4 downto 0);  --! Current working position
         left : in     std_logic;                    --! Move to the left
         right : in    std_logic;                    --! Move to the right
         increment : in std_logic;                    --! Increment the frequency
-        decrement : in std_logic                    --! Decrement the frequency
+        decrement : in std_logic;                    --! Decrement the frequency
+        out_1 : out std_logic_vector(3 downto 0);  --! Output for the next stage
+        out_10 : out std_logic_vector(3 downto 0);  --! Output for the next stage
+        out_100 : out std_logic_vector(3 downto 0);  --! Output for the next stage
+        out_1000 : out std_logic_vector(3 downto 0);  --! Output for the next stage
+        out_10000 : out std_logic_vector(3 downto 0)  --! Output for the next stage
     );
 
 end entity frequency;
@@ -83,7 +88,15 @@ begin
         end case;
     end process;
 
-    freq_bin <= std_logic_vector(to_unsigned(int_freq, 15));
+--    freq_bin <= std_logic_vector(to_unsigned(int_freq, 15));
+
+    out_1 <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+    out_10 <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+    out_100 <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+    out_1000 <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+    out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
+
+
 -- TODO: Make the frequency more readable for the next stage, maybe a 4 bit std_logic_vector for every decade
 end behavioral;
 
