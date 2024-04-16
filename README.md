@@ -48,7 +48,6 @@
 
 - [Nexys A7-50T](https://digilent.com/reference/programmable-logic/nexys-a7/start)
 - [Rotary encoder]()
-- ! encoder signal should go to mode select first, to know which variable is being changed 
 - Initial CRUDE sketch
 - ![IMG_1153](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/395b58a0-7fdd-476a-a2ee-0f101e7057f6)
 
