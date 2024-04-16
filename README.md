@@ -11,7 +11,7 @@
 - Documentation -> MAREK, RADEK
 - TO-DO management -> MAREK
 - schematics -> RADEK
-
+- clock -> MAREK
 
 
 ## File responsibility:
@@ -23,6 +23,7 @@
 - pwm_controller.vhd -> DOMINIK
 - jack.vhd -> DOMINIK
 - nexys-a7-50t.xdc -> MAREK
+- clock.vhd -> MAREK
 
 ## Links
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
