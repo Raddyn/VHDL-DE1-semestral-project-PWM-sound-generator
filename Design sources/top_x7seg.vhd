@@ -1,30 +1,62 @@
-library ieee;
-use ieee.std_logic_1164.all;
-entity x7seg_top is
-	port(
-		mclk: in std_logic;
-		btn: in std_logic_vector(3 downto 3);
-		a_to_g: out std_logic_vector(6 downto 0);
-		an: out std_logic_vector(3 downto 0);
-		dp: out std_logic
-		);
-end x7seg_top;
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 17.04.2024 10:26:01
+-- Design Name: 
+-- Module Name: counter - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
 
 
-architecture x7seg_top of x7seg_top is
-component x7seg is
-	port(
-    		x: in std_logic_vector(15 downto 0);
-            clk: in std_logic;
-            clr: in std_logic;
-            a_to_g: out std_logic_vector(6 downto 0);
-            an: out std_logic_vector(3 downto 0);
-            dp: out std_logic
-          );
-end component;
-signal x: std_logic_vector(15 downto 0);
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.std_logic_unsigned.all;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity counter is
+    Port ( clk : in STD_LOGIC;
+           rst : in STD_LOGIC;
+           en : in STD_LOGIC;
+           count : out STD_LOGIC_VECTOR (3 downto 0));
+end counter;
+
+architecture Behavioral of counter is
+    signal sig_count: std_logic_vector(3 downto 0);
 begin
-	x <= x"1234";
-    X1: x7seg port map
-    	(x => x, clk => mclk, clr => btn(3), a_to_g => a_to_g, an =>an, dp => dp);
-end x7seg_top;
+
+    process (clk)
+    begin
+    if (rising_edge(clk)) then
+        if rst='1' then
+            sig_count <= (others => '0');
+        elsif en = '1' then
+            if sig_count < "101" then
+                sig_count <= sig_count + 1;
+            else
+                sig_count <= (others => '0');
+            end if;
+        end if;
+    end if;
+    end process;
+
+count <= sig_count;
+end Behavioral;
