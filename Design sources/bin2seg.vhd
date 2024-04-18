@@ -71,7 +71,7 @@ begin
       when x"9" =>
         seg <= "0000100";
       when others =>
-        seg <= "1111111";    
+        seg <= "1111111";    --segment turned off for duty mode
     end case;
 
   end if;    
