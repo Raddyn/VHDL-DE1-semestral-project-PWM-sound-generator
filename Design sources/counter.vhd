@@ -36,11 +36,11 @@ entity counter is
     Port ( clk : in STD_LOGIC;
            rst : in STD_LOGIC;
            en : in STD_LOGIC;
-           count : out STD_LOGIC_VECTOR (3 downto 0));
+           count : out STD_LOGIC_VECTOR (2 downto 0));
 end counter;
 
 architecture Behavioral of counter is
-    signal sig_count: std_logic_vector(3 downto 0);
+    signal sig_count: std_logic_vector(2 downto 0);
 begin
 
     process (clk)
@@ -49,7 +49,7 @@ begin
         if rst='1' then
             sig_count <= (others => '0');
         elsif en = '1' then
-            if sig_count < "101" then
+            if sig_count < "100" then
                 sig_count <= sig_count + 1;
             else
                 sig_count <= (others => '0');
