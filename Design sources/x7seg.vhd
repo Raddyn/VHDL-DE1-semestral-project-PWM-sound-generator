@@ -64,7 +64,7 @@ architecture Behavioral of x7seg is
             clk : in std_logic;
             rst : in std_logic;
             en : in std_logic;
-            count: out std_logic_vector(3 downto 0)
+            count: out std_logic_vector(2 downto 0)
             );
     end component;
     
@@ -80,7 +80,7 @@ architecture Behavioral of x7seg is
     end component;
 
     signal per_mulx: std_logic;
-    signal position: std_logic_vector(3 downto 0);
+    signal position: std_logic_vector(2 downto 0);
     signal seg_data: std_logic_vector(3 downto 0);
 begin
 
@@ -93,7 +93,7 @@ begin
 
     period : component clock_enable
         generic map(
-            N_PERIODS => 300000
+            N_PERIODS => 5            --Frequency of display NEED to change before implementig, mby 30 - 60 Hz  -> 3_333_333 - 1_666_666
             )
         port map(
             clk => clk,
@@ -116,28 +116,31 @@ begin
         
         if (rising_edge(clk)) then
             if (rst = '1') then
-                seg_data <= "1111111";
+                seg_data <= "0000";
             elsif (sw = '0') then
                 case position is
-                    when "001" =>
+                    when "000" =>
                         seg_data <= out_1;
                         pos_mulx_freq <= "11110";
                     
-                    when "010" =>
+                    when "001" =>
                         seg_data <= out_10;
                         pos_mulx_freq <= "11101";
                     
-                    when "100" =>
+                    when "010" =>
                         seg_data <= out_100;
                         pos_mulx_freq <= "11011";
                     
-                    when "101" =>
+                    when "011" =>
                         seg_data <= out_1000;
                         pos_mulx_freq <= "10111";
                     
-                    when "110" =>
+                    when "100" =>
                         seg_data <= out_10000;
-                        pos_mulx_freq <= "01110";
+                        pos_mulx_freq <= "01111";
+                    when others =>
+                        seg_data<= "0000";
+                        pos_mulx_freq <= "11111";
                     
                 end case;
                     
@@ -151,17 +154,11 @@ begin
                         seg_data <= out_10_duty;
                         pos_mulx_freq <= "11101";
                     
-                    when "100" =>
-                        seg_data <= "1111111";
-                        pos_mulx_freq <= "11011";
+                    when others =>
+                        seg_data <= "1111";
+                        
                     
-                    when "101" =>
-                        seg_data <= "1111111";
-                        pos_mulx_freq <= "10111";
                     
-                    when "110" =>
-                        seg_data <= "1111111";
-                        pos_mulx_freq <= "01110";
                 end case;
             end if;
         end if;
