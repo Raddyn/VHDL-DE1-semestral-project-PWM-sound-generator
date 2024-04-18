@@ -71,7 +71,7 @@ begin
       when x"9" =>
         seg <= "0000100";
       when others =>
-        seg <= "0110000";    -- Other cases (E) error
+        seg <= "1111111";    
     end case;
 
   end if;    
