@@ -44,7 +44,7 @@ entity x7seg is
            
            out_1_duty     : in std_logic_vector(3 downto 0); 
            out_10_duty    : in std_logic_vector(3 downto 0);
-           pos_mulx_duty : out std_logic_vector(1  downto 0);
+           pos_mulx_duty : out std_logic_vector(1  downto 0);      --didn't use this vector and went caveman method and used half of freq vector
            
            sw : in std_logic
            );
@@ -146,11 +146,11 @@ begin
                     
             else
                 case position is
-                    when "001" =>
+                    when "000" =>
                         seg_data <= out_1_duty;
                         pos_mulx_freq <= "11110";
                     
-                    when "010" =>
+                    when "011" =>
                         seg_data <= out_10_duty;
                         pos_mulx_freq <= "11101";
                     
@@ -166,3 +166,6 @@ begin
 
 
 end Behavioral;
+
+
+-- TO DO: Flashing seg when changing walue (need of second clock enable and counter with bigger period and add if statment to case)
