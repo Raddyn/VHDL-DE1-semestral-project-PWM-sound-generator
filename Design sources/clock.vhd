@@ -7,7 +7,7 @@ entity clock_enable is
         N_PERIODS : integer := 3
     );
     port (
-        clk   : in    std_logic; 
+        cclk   : in    std_logic; 
         rst   : in    std_logic; 
         pulse : out   std_logic  
     );
@@ -18,10 +18,10 @@ architecture behavioral of clock_enable is
     signal sig_count : integer range 0 to N_PERIODS - 1;
 begin
 
-    clock_enable : process (clk) is
+    clock_enable : process (cclk) is
     begin
 
-        if (rising_edge(clk)) then                   
+        if (rising_edge(cclk)) then                   
             if (rst = '1') then                      
                 sig_count <= 0;
 
