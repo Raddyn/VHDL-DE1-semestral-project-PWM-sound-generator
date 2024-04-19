@@ -31,7 +31,7 @@ begin
 
   val_change : process (increment, decrement, clear) is --! Process to change the value of the frequency
   begin
-    if en = '1' then
+    if en = '0' then
       if clear = '1' then
         int_freq <= 1000;
       else
@@ -52,18 +52,20 @@ begin
 
   pos_change : process (left, right, clear) is --! Process to change the position of the frequency
   begin
-    if clear = '1' then
-      int_pos <= 2;
-    else
-      if left = '1' then
-        int_pos <= int_pos + 1;
-        if int_pos > 4 then
-          int_pos <= 4;
-        end if;
-      elsif right = '1' then
-        int_pos <= int_pos - 1;
-        if int_pos < 0 then
-          int_pos <= 0;
+    if en = '0' then --! Only change the position if the display is enabled
+      if clear = '1' then
+        int_pos <= 2;
+      else
+        if left = '1' then
+          int_pos <= int_pos + 1;
+          if int_pos > 4 then
+            int_pos <= 4;
+          end if;
+        elsif right = '1' then
+          int_pos <= int_pos - 1;
+          if int_pos < 0 then
+            int_pos <= 0;
+          end if;
         end if;
       end if;
     end if;
