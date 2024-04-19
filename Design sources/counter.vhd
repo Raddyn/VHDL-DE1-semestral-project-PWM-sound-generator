@@ -21,7 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use ieee.std_logic_unsigned.all;
+use ieee.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -33,6 +33,9 @@ use ieee.std_logic_unsigned.all;
 --use UNISIM.VComponents.all;
 
 entity counter is
+    generic (
+        count_int : integer := 0
+    );
     Port ( clk : in STD_LOGIC;
            rst : in STD_LOGIC;
            en : in STD_LOGIC;
