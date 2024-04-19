@@ -36,7 +36,7 @@ component mode_selector is
     
  component top_x7seg is   --tbd, when full integer number => 8 display output functionality  is achieved
     Port (
-        mclk: in std_logic;
+        	mclk: in std_logic;
 		btn: in std_logic_vector(3 downto 3);
 		a_to_g: out std_logic_vector(6 downto 0);
 		an: out std_logic_vector(3 downto 0);
@@ -88,7 +88,8 @@ begin
     );
     DISP: top_x7seg -- fix in top_x7seg
     port map (
-        mclk => tlck,
+        mclk => tclk,
+	btn_rst => btn,
         
     
     );
