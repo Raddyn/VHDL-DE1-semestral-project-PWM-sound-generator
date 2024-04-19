@@ -24,15 +24,6 @@ entity top_level is
 end top_level;
 
 architecture Behavioral of top_level is
-
-component mode_selector is
-    Port ( 
-        switch : in  STD_LOGIC; -- Assuming 1 switch
-        frequency_mode : out STD_LOGIC;
-        duty_cycle_mode : out STD_LOGIC   
-           );
-   
-    end component;
     
  component top_x7seg is   --tbd, when full integer number => 8 display output functionality  is achieved
     Port (
@@ -56,9 +47,7 @@ component mode_selector is
     );
     
     end component;
-  
-  
-    signal mode_switch: STD_LOGIC;
+	
     signal rotary_encoder: STD_LOGIC;
     signal audio_out:  STD_LOGIC;
     signal LED_signal: STD_LOGIC_VECTOR (15 downto 0);
@@ -68,6 +57,7 @@ component mode_selector is
     signal duty_cycle: integer;
     signal to_disp: integer;
     signal clk_en: std_logic;
+    signal mode: std_logic;
     
 begin
     clk1: clock
@@ -79,13 +69,7 @@ begin
             rst   => btn_rst,
             pulse => clk_en
         );
-
-    MS: mode_selector
-    port map (
-        switch => SW_MODE ,
-        frequency_mode => frequency_enable,
-        duty_cycle_mode => duty_cycle_enable
-    );
+	    
     DISP: top_x7seg -- fix in top_x7seg
     port map (
         mclk => tclk,
@@ -93,11 +77,12 @@ begin
         
     
     );
-    process (f_mode_top, d_mode_top)
+    process (SW_MODE)
     begin
-        if f_mode_top = '1' then
+        if SW_MODE = '0' then
+	    
             output <= frequency;
-        elsif d_mode_top = '1' then
+        elsif SW_MODE = '1' then
             output <= duty_cycle;
         end if;
     end process;
