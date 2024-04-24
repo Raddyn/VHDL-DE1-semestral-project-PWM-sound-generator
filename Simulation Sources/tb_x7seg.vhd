@@ -1,6 +1,6 @@
 -- Testbench automatically generated online
 -- at https://vhdl.lapinoo.net
--- Generation date : 17.4.2024 14:06:54 UTC
+-- Generation date : 23.4.2024 19:34:15 UTC
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -23,7 +23,8 @@ architecture tb of tb_x7seg is
               out_1_duty    : in std_logic_vector (3 downto 0);
               out_10_duty   : in std_logic_vector (3 downto 0);
               pos_mulx_duty : out std_logic_vector (1  downto 0);
-              sw            : in std_logic);
+              sw            : in std_logic;
+              position_in   : in std_logic_vector (4 downto 0));
     end component;
 
     signal clk           : std_logic;
@@ -39,6 +40,7 @@ architecture tb of tb_x7seg is
     signal out_10_duty   : std_logic_vector (3 downto 0);
     signal pos_mulx_duty : std_logic_vector (1  downto 0);
     signal sw            : std_logic;
+    signal position_in   : std_logic_vector (4 downto 0);
 
     constant TbPeriod : time := 10 ns; -- EDIT Put right period here
     signal TbClock : std_logic := '0';
@@ -59,14 +61,14 @@ begin
               out_1_duty    => out_1_duty,
               out_10_duty   => out_10_duty,
               pos_mulx_duty => pos_mulx_duty,
-              sw            => sw);
+              sw            => sw,
+              position_in   => position_in);
 
     -- Clock generation
     TbClock <= not TbClock after TbPeriod/2 when TbSimEnded /= '1' else '0';
 
     -- EDIT: Check that clk is really your main clock signal
     clk <= TbClock;
-
     stimuli : process
     begin
         -- EDIT Adapt initialization as needed
@@ -78,6 +80,7 @@ begin
         out_1_duty <= x"0";
         out_10_duty <= x"5";
         sw <= '0';
+        position_in <= "00001";
 
         -- Reset generation
         -- EDIT: Check that rst is really your reset signal
@@ -88,10 +91,11 @@ begin
 
         -- EDIT Add stimuli here
         wait for 100 * TbPeriod;
-        sw <= '1';
+        position_in <= "00100";
         wait for 100 * TbPeriod;
+        position_in <= "10000";
         -- Stop the clock and hence terminate the simulation
-        TbSimEnded <= '1';
+       -- TbSimEnded <= '1';
         wait;
     end process;
 
