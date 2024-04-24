@@ -78,10 +78,8 @@ begin
     end case;
   end process;
 
-  --    freq_bin <= std_logic_vector(to_unsigned(int_duty, 15));
 
   out_1  <= std_logic_vector(to_unsigned(int_duty mod 10, 4));
   out_10 <= std_logic_vector(to_unsigned((int_duty / 10) mod 10, 4));
 
-  -- TODO: Make the duty more readable for the next stage, maybe a 4 bit std_logic_vector for every decade
 end behavioral;
