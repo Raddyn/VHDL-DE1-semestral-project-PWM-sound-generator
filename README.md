@@ -45,6 +45,12 @@
 - Current display position selected using buttons, flicker as indicator 
 - Frequency or duty cycle selected using rotary encoder (or buttons?) 
 - (optional QoL) LEDs indicate current frequency at all times
+
+- signal generation formula: n_clk = freq_clock/(bit_sound_sig*freq_sound)
+- freq_sound ... frequency of the wanted sound
+- bit_sound_sig ... bit depth of the counter creating the sound signal
+- freq_clock ... frequency of the used clock
+- n_clk ... number of counted clock period 
 ## Hardware
 
 - [Nexys A7-50T](https://digilent.com/reference/programmable-logic/nexys-a7/start)
