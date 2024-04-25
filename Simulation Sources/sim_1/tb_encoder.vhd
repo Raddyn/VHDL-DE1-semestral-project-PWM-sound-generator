@@ -65,7 +65,6 @@ begin
         data_A_tb <= '0';
         data_B_tb <= '1';
         wait for 10 ns;
-        -- ...
 
         wait;
     end process;
