@@ -7,11 +7,11 @@ use ieee.numeric_std.all;
 entity encoder is
   port
   (
-    clk    : in std_logic;
-    data_A : in std_logic;
-    data_B : in std_logic;
-    Up     : out std_logic;
-    down   : out std_logic
+    clk    : in std_logic; -- Clock signal
+    data_A : in std_logic; -- Input signal A
+    data_B : in std_logic; -- Input signal B
+    Up     : out std_logic; -- Up signal
+    down   : out std_logic -- Down signal
   );
 end encoder;
 -- Define the architecture of the encoder module
