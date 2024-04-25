@@ -4,8 +4,7 @@
 - Find sources, test function of PWM module -> DOMINIK
 - Test audio jack out -> DOMINIK
 - configure constraints file -> MAREK
-- IMPORTANT! - Delegation of further tasks
-- Rotary encoder -> ?
+- Rotary encoder -> RADEK
 - Configuration of 7seg.vhd, mainly position of each display -> JARA
 - Rough sketch of hardware, algorithm flowchart, top_level -> RADEK, MAREK
 - Documentation -> MAREK, RADEK
@@ -24,6 +23,34 @@
 - jack.vhd -> DOMINIK
 - nexys-a7-50t.xdc -> MAREK
 - clock.vhd -> MAREK
+
+## Top level organization
+- component declaration
+  - encoder Y
+  - 7seg Y
+  - duty Y
+  - freq Y
+  - pwm_module Y
+  - clock Y
+
+- component instantiation
+  - encoder Y
+  - 7seg Y
+  - duty Y
+  - freq Y
+  - pwm_module N
+  - clock Y
+
+- signals
+  - s_clr             currently unused, clear mapped directly to BTN_C
+  - audio_out                        pwm_module -> audio jack
+  - LED signal          !maybe delete
+  - clk_en      
+  - s_inc                          rotary encoder -> freq AND duty
+  - s_dec                                 -||-
+  - s_out1 - s_out10000               freq AND duty -> 7seg AND pwm_module
+  - s_data_A                          rotary encoder input -> rotary encoder output
+  - s_data_B                          rotary encoder input -> rotary encoder output
 
 ## Links
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
