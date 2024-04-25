@@ -10,7 +10,7 @@
 -- Tool Versions: 
 -- Description: 
 -- 
--- Dependencies: 
+-- Dependencies:
 -- 
 -- Revision:
 -- Revision 0.01 - File Created
@@ -35,10 +35,10 @@ use ieee.math_real.all;
 
 entity PWM is
     Port ( clk : in STD_LOGIC;
-           --sig_in : in STD_LOGIC_VECTOR (7 downto 0);
-           --freq_1 : in unsigned(3 downto 0);
-           --freq_10 : in unsigned(3 downto 0);
-           --freq_100 : in unsigned(3 downto 0);
+           --sig_in : in STD_LOGIC_VECTOR (7 downto 0);   <----REDUNDANT          
+           --freq_1 : in unsigned(3 downto 0);            
+           --freq_10 : in unsigned(3 downto 0);            
+           --freq_100 : in unsigned(3 downto 0);            ENABLE THE FREQ INPUTS
            --freq_1000 : in unsigned(3 downto 0);
            --freq_10000 : in unsigned(3 downto 0);
            pwm_out : out STD_LOGIC
@@ -68,6 +68,7 @@ begin
 
 SOUND_SIGNAL_GEN : process(clk) is
 begin
+--ENABLE FREQ AND TEST IT
 --freq <= (10000*TO_INTEGER(freq_10000) + 1000*TO_INTEGER(freq_1000) + 100*TO_INTEGER(freq_100) + 10*TO_INTEGER(freq_10) + TO_INTEGER(freq_1)));
     n_clk <= integer(1000000/(256*freq));
     x_samp <= real((freq*256) / 1000000);
@@ -86,7 +87,7 @@ begin
         end if;
     elsif freq > 200 then
         if rising_edge(clk) then
-            if n_clk_cnt < n_clk - 1 then
+            if n_clk_cnt < n_clk - 1 then            --THIS SETS THE COUNTER INCREMENT WHEN F > 200 Hz, needs to be solved
                 n_clk_cnt <= n_clk_cnt +1;
             elsif n_clk_cnt = n_clk - 1 then
                 n_clk_cnt <= 0;
@@ -101,7 +102,7 @@ begin
     end if;
 end process;
 
-PWM_CLK1 : process(clk) is
+PWM_CLK1 : process(clk) is        --THIS IS A PWM SAMPLER (CLOCK) WITH FS = 50kHz, is adjustable
 begin
     if rising_edge(clk) then
         if n_clk_samp_cnt < n_clk_samp/2 - 1 then
@@ -113,13 +114,13 @@ begin
     end if;
 end process;
 
-PWM_signal : process(pwm_clk) is
+PWM_signal : process(pwm_clk) is        --THIS IS THE PWM MODULATOR, CONVERTS THE SIGNAL AMPLITUDE INTO HIGH STATE DURATION
 begin
     if rising_edge(pwm_clk) then
         --test <= sound_sig;
         duty_high_time <= time(((to_integer(sound_sig))*1000/(2**8))* 20 ns);
-        pwm_sig <= '1';
-        pwm_sig <= '0' after duty_high_time;
+        pwm_sig <= '1';                --THIS PART SETS THE SIGNAL TO HIGH (1) UNTIL THE CALCULATED HIGH TIME PASSES
+        pwm_sig <= '0' after duty_high_time;     
     end if;
 end process;
 
