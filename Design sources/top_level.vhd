@@ -14,7 +14,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity top_level is
  Port (
     SW_MODE : in STD_LOGIC;  -- mode selector switch
-    LED: out STD_LOGIC_VECTOR (15 downto 0);
+    --LED: out STD_LOGIC_VECTOR (15 downto 0); --LED functionality cancelled
     f_mode_top: in STD_logic;
     d_mode_top: in std_logic;
     output: out integer;
@@ -28,6 +28,7 @@ end top_level;
 
 architecture Behavioral of top_level is
  
+ -- components declaration
  component duty is 
     port
   (
@@ -110,20 +111,29 @@ architecture Behavioral of top_level is
     );
     end component; 
     
+    component pwm_module
+     port(
+        clk: in std_logic;
+        freq_in1: in std_logic_vector(3 downto 0);
+        freq_in10: in std_logic_vector(3 downto 0);
+        freq_in100: in std_logic_vector(3 downto 0);
+        freq_in1000: in std_logic_vector(3 downto 0);
+        freq_in10000: in std_logic_vector(3 downto 0);
+        
+        duty_cycle1: in std_logic_vector(3 downto 0);
+        duty_cycle10: in std_logic_vector(3 downto 0);
+        
+        pwm_out: out std_logic_vector(3 downto 0)
+     );
     
+    end component;
     
     
     -- SIGNALS 
 	
-	signal s_clr: std_logic;
-    signal rotary_encoder: STD_LOGIC;
+	signal s_clr: std_logic; --redundant? 
     signal audio_out:  STD_LOGIC;
-    signal LED_signal: STD_LOGIC_VECTOR (15 downto 0);
-    signal frequency_enable: std_logic;
-    signal duty_cycle_enable: std_logic;
-    signal frequency_s: integer;
-    signal duty_s: integer;
-    signal to_disp: integer;
+   -- signal LED_signal: STD_LOGIC_VECTOR (15 downto 0);
     signal clk_en: std_logic;
     signal mode: std_logic;
     signal s_inc: std_logic;
