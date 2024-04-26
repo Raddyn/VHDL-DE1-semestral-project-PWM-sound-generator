@@ -32,11 +32,26 @@ begin
       int_duty <= 50;
     else
       if increment = '1' then
-        int_duty <= int_duty + 1 * (10 ** int_pos);
+        case int_pos is
+          when 0 =>
+            int_duty <= int_duty + 1;
+          when 1 =>
+            int_duty <= int_duty + 10;
+          when others =>
+            int_duty <= int_duty;
+        end case;
         if int_duty > 100 then
           int_duty <= 100;
         end if;
       elsif decrement = '1' then
+        case int_pos is
+          when 0 =>
+            int_duty <= int_duty - 1;
+          when 1 =>
+            int_duty <= int_duty - 10;
+          when others =>
+            int_duty <= int_duty;
+        end case;
         int_duty <= int_duty - 1 * (10 ** int_pos);
         if int_duty < 0 then
           int_duty <= 0;

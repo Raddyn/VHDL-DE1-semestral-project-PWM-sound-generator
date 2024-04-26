@@ -36,12 +36,38 @@ begin
         int_freq <= 1000;
       else
         if increment = '1' then
-          int_freq <= int_freq + 1 * (10 ** int_pos);
+          case int_pos is
+            when 0 =>
+              int_freq <= int_freq + 1;
+            when 1 =>
+              int_freq <= int_freq + 10;
+            when 2 =>
+              int_freq <= int_freq + 100;
+            when 3 =>
+              int_freq <= int_freq + 1000;
+            when 4 =>
+              int_freq <= int_freq + 10000;
+            when others =>
+              int_freq <= int_freq;
+          end case;
           if int_freq > 20000 then
             int_freq <= 20000;
           end if;
         elsif decrement = '1' then
-          int_freq <= int_freq - 1 * (10 ** int_pos);
+          case int_pos is
+            when 0 =>
+              int_freq <= int_freq - 1;
+            when 1 =>
+              int_freq <= int_freq - 10;
+            when 2 =>
+              int_freq <= int_freq - 100;
+            when 3 =>
+              int_freq <= int_freq - 1000;
+            when 4 =>
+              int_freq <= int_freq - 10000;
+            when others =>
+              int_freq <= int_freq;
+          end case;
           if int_freq < 20 then
             int_freq <= 20;
           end if;
