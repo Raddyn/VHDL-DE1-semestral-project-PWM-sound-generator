@@ -121,7 +121,7 @@ begin
             if (rst = '1') then
                 seg_data <= "0000";
             elsif (sw = '0') then
-            --some kokotina for F
+            --some for F
                 case position is
                     when "000" =>
                         if (position_in = "00001") then                 --copy
@@ -200,7 +200,7 @@ begin
                 end case;
                     
             else
-            --some kokotina to set D
+            --some to set D
                 case position is
                     when "001" =>
                         if (position_in = "00001") then                 --copy
