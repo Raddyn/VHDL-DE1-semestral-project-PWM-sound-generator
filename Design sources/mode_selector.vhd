@@ -5,8 +5,9 @@ use IEEE.NUMERIC_STD.ALL;
 entity mode_selector is
     Port (
         switch : in  STD_LOGIC; -- Assuming 1 switch
-        frequency_mode : out STD_LOGIC;
-        duty_cycle_mode : out STD_LOGIC
+        pos_freq: in std_logic_vector (4 downto 0);
+        pos_duty: in std_logic_vector (4 downto 0);
+        pos_out: out std_logic_vector (4 downto 0)
     );
 end mode_selector;
 
@@ -15,11 +16,9 @@ begin
     process(switch)
     begin
         if switch = '0' then
-            frequency_mode <= '1'; -- Mode 1 output is HIGH
-            duty_cycle_mode <= '0'; -- Mode 2 output is LOW
+            pos_out <= pos_freq;
         else
-            frequency_mode <= '0'; -- Mode 1 output is LOW
-            duty_cycle_mode <= '1'; -- Mode 2 output is HIGH
+            pos_out <= pos_duty;
         end if;
     end process;
 end Behavioral;
