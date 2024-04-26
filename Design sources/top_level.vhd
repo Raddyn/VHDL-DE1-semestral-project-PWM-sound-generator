@@ -15,14 +15,25 @@ entity top_level is
  Port (
     SW_MODE : in STD_LOGIC;  -- mode selector switch
     --LED: out STD_LOGIC_VECTOR (15 downto 0); --LED functionality cancelled
-    f_mode_top: in STD_logic;
-    d_mode_top: in std_logic;
-    output: out integer;
+    --f_mode_top: in STD_logic;
+    --d_mode_top: in std_logic;
+    --output: out integer;
     tclk: in std_logic;
-    btn_rst: in std_logic;
+    --btn_rst: in std_logic;
     btn_clr : in std_logic;
     btn_left: in std_logic;
-    btn_right: in std_logic
+    btn_right: in std_logic;
+    AUD_PWM: out std_logic;
+    
+    AN:        out std_logic_vector(4 downto 0);
+    CA        : out   std_logic;                     --! Cathod A
+    CB        : out   std_logic;                     --! Cathod B
+    CC        : out   std_logic;                     --! Cathod C
+    CD        : out   std_logic;                     --! Cathod D
+    CE        : out   std_logic;                     --! Cathod E
+    CF        : out   std_logic;                     --! Cathod F
+    CG        : out   std_logic;                     --! Cathod G
+    DP        : out   std_logic                    --! Decimal point
   );
 end top_level;
 
@@ -36,7 +47,7 @@ architecture Behavioral of top_level is
     en    : in std_logic; --! Enable the display
     --        clk : in      std_logic;                    --! Clock signal
     --        freq_bin : out    std_logic_vector(14 downto 0);  --! duty of the display
-    pos_duty  : out std_logic_vector(1 downto 0); --! Current working position
+    pos_duty  : out std_logic_vector(4 downto 0); --! Current working position
     left      : in std_logic; --! Move to the left
     right     : in std_logic; --! Move to the right
     increment : in std_logic; --! Increment the duty
@@ -84,7 +95,8 @@ architecture Behavioral of top_level is
            out_10_duty    : in std_logic_vector(3 downto 0);
            pos_mulx_duty : out std_logic_vector(1  downto 0);      --didn't use this vector and went caveman method and used half of freq vector
            
-           sw : in std_logic
+           sw : in std_logic;
+           position_in : in std_logic_vector(4 downto 0)
            );
 
     end component;
@@ -111,7 +123,7 @@ architecture Behavioral of top_level is
     );
     end component; 
     
-    component pwm_module
+    component PWM_module
      port(
         clk: in std_logic;
         freq_in1: in std_logic_vector(3 downto 0);
@@ -123,16 +135,25 @@ architecture Behavioral of top_level is
         duty_cycle1: in std_logic_vector(3 downto 0);
         duty_cycle10: in std_logic_vector(3 downto 0);
         
-        pwm_out: out std_logic_vector(3 downto 0)
+        pwm_out: out std_logic
      );
     
     end component;
     
+    component mode_selector
+     port(
+        switch : in  STD_LOGIC; -- Assuming 1 switch
+        pos_freq: in std_logic_vector (4 downto 0);
+        pos_duty: in std_logic_vector (4 downto 0);
+        pos_out: out std_logic_vector (4 downto 0)
+     );
+     
+     end component;
     
     -- SIGNALS 
 	
 	signal s_clr: std_logic; --redundant? 
-    signal audio_out:  STD_LOGIC;
+   -- signal audio_out:  STD_LOGIC;
    -- signal LED_signal: STD_LOGIC_VECTOR (15 downto 0);
     signal clk_en: std_logic;
     signal mode: std_logic;
@@ -143,16 +164,24 @@ architecture Behavioral of top_level is
     signal s_out100: std_logic_vector (3 downto 0);
     signal s_out1000: std_logic_vector (3 downto 0);
     signal s_out10000: std_logic_vector (3 downto 0);
+    signal s_out_duty1: std_logic_vector (3 downto 0);
+    signal s_out_duty10: std_logic_vector (3 downto 0);
     signal s_data_A: std_logic;
     signal s_data_B: std_logic;
+    signal s_pos: std_logic_vector (4 downto 0);
+    signal s_pos_duty: std_logic_vector (4 downto 0);
+    signal s_pos_out: std_logic_vector (4 downto 0);
 begin
+
+ -- component instantiation
+ 
     clk1: clock
     generic map (
             N_PERIODS => 1_000_000
         )
         port map (
             cclk   => tclk,
-            rst   => btn_rst,
+            rst   => btn_clr,
             pulse => clk_en
         );
     enc: encoder 
@@ -173,8 +202,9 @@ begin
 	   right => btn_right,
 	   increment => s_inc,
 	   decrement => s_dec,
-	   out_1 => s_out1,
-	   out_10 => s_out10
+	   out_1 => s_out_duty1,
+	   out_10 => s_out_duty10,
+	   pos_duty => s_pos_duty
 	);
 	
 	f1: frequency 
@@ -189,24 +219,62 @@ begin
 	   out_10 => s_out10,
 	   out_100 => s_out100,
 	   out_1000 => s_out1000,
-	   out_10000 => s_out10000
+	   out_10000 => s_out10000,
+	   pos => s_pos
 	);
 	    
 	    
-    DISP: x7seg -- fix in top_x7seg
+    DISP: x7seg 
     port map (
        clk => tclk,
-       rst => btn_rst,
+       rst => btn_clr,
        out_1 => s_out1,
 	   out_10 => s_out10,
 	   out_100 => s_out100,
 	   out_1000 => s_out1000,
 	   out_10000 => s_out10000,
-	   out_1_duty => s_out1,
-	   out_10_duty => s_out10,
-       sw => mode
-   
+	   out_1_duty => s_out_duty1,
+	   out_10_duty => s_out_duty10,
+       sw => mode,
+       position_in => s_pos_out,
+       pos_mulx_freq => AN,
+       seg(6) => CA,
+       seg(5) => CB,
+       seg(4) => CC,
+       seg(3) => CD,
+       seg(2) => CE,
+       seg(1) => CF,
+       seg(0) => CG
+
     );
+    
+    MS: mode_selector
+    port map(
+        switch => SW_MODE,
+        pos_freq => s_pos,
+        pos_duty => s_pos_duty,
+        pos_out => s_pos_out
+    
+    );
+    
+    
+    
+    PWM: PWM_module
+    port map (
+        clk => tclk,
+        freq_in1 => s_out1,
+        freq_in10 => s_out10,
+        freq_in100 => s_out100,
+        freq_in1000 => s_out1000,
+        freq_in10000 => s_out10000,
+        duty_cycle1 => s_out_duty1,
+        duty_cycle10 => s_out_duty10,    
+        
+        pwm_out => AUD_PWM
+    
+    );
+    
+    DP <= '1';
     process (SW_MODE)
     begin
         if SW_MODE = '0' then
