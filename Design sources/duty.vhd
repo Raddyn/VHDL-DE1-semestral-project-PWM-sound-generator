@@ -96,4 +96,4 @@ begin
   out_1  <= std_logic_vector(to_unsigned(int_duty mod 10, 4));
   out_10 <= std_logic_vector(to_unsigned((int_duty / 10) mod 10, 4));
 
-end behavioral;
+end behavioral
