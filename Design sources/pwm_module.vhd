@@ -31,9 +31,13 @@ begin
       if counter < clock/freq then
         if counter < (duty_cycle * clock)/(100 * freq) then
           pwm_out <= '1';
+          counter <= counter + 1;
         else
           pwm_out <= '0';
+          counter <= counter + 1;
         end if;
+      else
+        counter <= 0;
       end if;
     end if;
   end process;
