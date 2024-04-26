@@ -52,7 +52,6 @@ begin
           when others =>
             int_duty <= int_duty;
         end case;
-        int_duty <= int_duty - 1 * (10 ** int_pos);
         if int_duty < 0 then
           int_duty <= 0;
         end if;
