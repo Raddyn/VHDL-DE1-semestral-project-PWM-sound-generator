@@ -8,7 +8,7 @@ entity duty is
     en    : in std_logic; --! Enable the display
     --        clk : in      std_logic;                    --! Clock signal
     --        freq_bin : out    std_logic_vector(14 downto 0);  --! duty of the display
-    pos_duty  : out std_logic_vector(1 downto 0); --! Current working position
+    pos_duty  : out std_logic_vector(4 downto 0); --! Current working position
     left      : in std_logic; --! Move to the left
     right     : in std_logic; --! Move to the right
     increment : in std_logic; --! Increment the duty
@@ -84,11 +84,11 @@ begin
   begin
     case int_pos is
       when 0 =>
-        pos_duty <= "01";
+        pos_duty <= "00001";
       when 1 =>
-        pos_duty <= "10";
+        pos_duty <= "00010";
       when others =>
-        pos_duty <= "00";
+        pos_duty <= "00000";
     end case;
   end process;
 
