@@ -2,7 +2,6 @@
 ## TO-DO:
 
 - Find sources, test function of PWM module -> DOMINIK
-- Test audio jack out -> DOMINIK
 - configure constraints file -> MAREK
 - Rotary encoder -> RADEK
 - Configuration of 7seg.vhd, mainly position of each display -> JARA
