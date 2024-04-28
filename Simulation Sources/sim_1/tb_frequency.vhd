@@ -62,47 +62,49 @@ begin
   begin
     -- EDIT Adapt initialization as needed
     en <= '1';
-    wait for 10 ns;
-    en    <= '0';
-    clear <= '1';
-    wait for 10 ns;
+    clear <= '0';
     left      <= '0';
     right     <= '0';
     increment <= '0';
     decrement <= '0';
-
-    -- Reset generation
-    -- EDIT: Check that clear is really your reset signal
-    wait for 10 ns;
+    wait for 5 ns;
+    en    <= '0';
+    wait for 5 ns;
+    clear <= '1';
+    wait for 5 ns;
     clear <= '0';
-    wait for 10 ns;
-    -- EDIT Add stimuli here
+    wait for 5 ns;
+
     decrement <= '1';
-    wait for 10 ns;
+    wait for 5 ns;
     decrement <= '0';
-    wait for 10 ns;
+    wait for 5 ns;
 
     left <= '1';
-    wait for 10 ns;
+    wait for 5 ns;
     left <= '0';
-    wait for 10 ns;
+    wait for 5 ns;
     left <= '1';
-    wait for 10 ns;
+    wait for 5 ns;
     left <= '0';
     for i in 0 to 30 loop
-      wait for 10 ns;
+      wait for 5 ns;
       increment <= '1';
-      wait for 10 ns;
+      wait for 5 ns;
       increment <= '0';
     end loop;
-    wait for 10 ns;
+    wait for 5 ns;
     right <= '1';
-    wait for 10 ns;
+    wait for 5 ns;
+    right <= '0';
+    wait for 5 ns;
+    right <= '1';
+    wait for 5 ns;
     right <= '0';
     for i in 0 to 30 loop
-      wait for 10 ns;
+      wait for 5 ns;
       decrement <= '1';
-      wait for 10 ns;
+      wait for 5 ns;
       decrement <= '0';
     end loop;
 
