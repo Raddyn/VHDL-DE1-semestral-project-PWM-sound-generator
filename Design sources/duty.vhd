@@ -64,14 +64,16 @@ begin
         int_pos <= 1;
       else
         if left = '1' then
-          int_pos <= int_pos + 1;
-          if int_pos > 1 then
-            int_pos <= 0; --! Change this line to reset int_pos to 0 instead of 1
-          end if;
+          if int_pos + 1 = 2 then
+            int_pos <= 0;
+          else
+            int_pos <= int_pos + 1;
+          end if; 
         elsif right = '1' then
-          int_pos <= int_pos - 1;
-          if int_pos < 0 then
-            int_pos <= 1; --! Change this line to set int_pos to 1 instead of 0
+          if int_pos - 1 = -1 then
+            int_pos <= 1;
+          else
+            int_pos <= int_pos - 1;
           end if;
         end if;
       end if;
