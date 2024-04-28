@@ -85,6 +85,10 @@ begin
     left <= '1';
     wait for 10 ns;
     left <= '0';
+    wait for 10 ns;
+    left <= '1';
+    wait for 10 ns;
+    left <= '0';
     for i in 0 to 30 loop
       wait for 10 ns;
       increment <= '1';
