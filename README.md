@@ -13,15 +13,14 @@
 
 
 ## File responsibility:
-- top_level.vhd -> MAREK, RADEK
+- top_level.vhd -> MAREK
 - frequency.vhd -> RADEK
+- duty.vhd -> RADEK
 - mode_selector.vhd -> MAREK
 - x7seg.vhd -> JARA
-- top_x7seg.vhd -> JARA
-- pwm_controller.vhd -> DOMINIK
-- jack.vhd -> DOMINIK
+- pwm_controller.vhd -> DOMINIK, RADEK
 - nexys-a7-50t.xdc -> MAREK
-- clock.vhd -> MAREK
+- clock.vhd -> 
 
 ## Top level organization
 - component declaration
