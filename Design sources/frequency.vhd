@@ -26,6 +26,7 @@ architecture behavioral of frequency is
 
   signal int_freq : integer := 1000;
   signal int_pos  : integer := 0;
+  signal temp_freq : integer := 0; -- buffer for the frequency
 
 begin
 
@@ -38,38 +39,44 @@ begin
         if increment = '1' then
           case int_pos is
             when 0 =>
-              int_freq <= int_freq + 1;
+              temp_freq <= int_freq + 1;
             when 1 =>
-              int_freq <= int_freq + 10;
+              temp_freq <= int_freq + 10;
             when 2 =>
-              int_freq <= int_freq + 100;
+              temp_freq <= int_freq + 100;
             when 3 =>
-              int_freq <= int_freq + 1000;
+              temp_freq <= int_freq + 1000;
             when 4 =>
-              int_freq <= int_freq + 10000;
+              temp_freq <= int_freq + 10000;
             when others =>
-              int_freq <= int_freq;
+              temp_freq <= int_freq;
           end case;
-          if int_freq > 20000 then
+          if temp_freq > 20000 then
             int_freq <= 20000;
+            temp_freq <= 20000;
+          else
+            int_freq <= temp_freq;
           end if;
         elsif decrement = '1' then
           case int_pos is
             when 0 =>
-              int_freq <= int_freq - 1;
+            temp_freq <= int_freq - 1;
             when 1 =>
-              int_freq <= int_freq - 10;
+            temp_freq <= int_freq - 10;
             when 2 =>
-              int_freq <= int_freq - 100;
+            temp_freq <= int_freq - 100;
             when 3 =>
-              int_freq <= int_freq - 1000;
+            temp_freq <= int_freq - 1000;
             when 4 =>
-              int_freq <= int_freq - 10000;
+            temp_freq <= int_freq - 10000;
             when others =>
-              int_freq <= int_freq;
+            temp_freq <= int_freq;
           end case;
-          if int_freq < 20 then
+          if temp_freq < 20 then
             int_freq <= 20;
+            temp_freq <= 20;
+          else
+            int_freq <= temp_freq;
           end if;
         end if;
       end if;
