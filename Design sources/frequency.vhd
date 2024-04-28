@@ -39,56 +39,87 @@ begin
         if increment = '1' then
           case int_pos is
             when 0 =>
-              temp_freq <= int_freq + 1;
+              if int_freq + 1 >= 20000 then
+                int_freq <= 20000;
+              else
+                int_freq <= int_freq + 1;
+              end if;
             when 1 =>
-              temp_freq <= int_freq + 10;
+            if int_freq + 10 >= 20000 then
+              int_freq <= 20000;
+            else
+              int_freq <= int_freq + 10;
+            end if;
             when 2 =>
-              temp_freq <= int_freq + 100;
+            if int_freq + 100 >= 20000 then
+              int_freq <= 20000;
+            else
+              int_freq <= int_freq + 100;
+            end if;
             when 3 =>
-              temp_freq <= int_freq + 1000;
+            if int_freq + 1000 >= 20000 then
+              int_freq <= 20000;
+            else
+              int_freq <= int_freq + 1000;
+            end if;
             when 4 =>
-              temp_freq <= int_freq + 10000;
+            if int_freq + 10000 >= 20000 then
+              int_freq <= 20000;
+            else
+              int_freq <= int_freq + 10000;
+            end if;
             when others =>
-              temp_freq <= int_freq;
+              int_freq <= int_freq;
           end case;
-          if temp_freq > 20000 then
-            int_freq  <= 20000;
-            temp_freq <= 20000;
-          else
-            int_freq <= temp_freq;
-          end if;
         elsif decrement = '1' then
           case int_pos is
             when 0 =>
-              temp_freq <= int_freq - 1;
+            if int_freq - 1 <= 20 then
+              int_freq <= 20;
+            else
+              int_freq <= int_freq - 1;
+            end if;
             when 1 =>
-              temp_freq <= int_freq - 10;
+            if int_freq - 10 <= 20 then
+              int_freq <= 20;
+            else 
+              int_freq <= int_freq - 10;
+            end if;
             when 2 =>
-              temp_freq <= int_freq - 100;
+            if int_freq - 100 <= 20 then
+              int_freq <= 20;
+            elsif int_freq = 100 then
+              int_freq <= 100;
+            else
+              int_freq <= int_freq - 100;
+            end if;
             when 3 =>
-              temp_freq <= int_freq - 1000;
+            if int_freq - 1000 <= 20 then
+              int_freq <= 20;
+            elsif int_freq = 1000 then
+              int_freq <= 1000;
+            else
+              int_freq <= int_freq - 1000;
+            end if;
             when 4 =>
-              temp_freq <= int_freq - 10000;
+            if int_freq - 10000 <= 20 then
+              int_freq <= 20;
+            elsif int_freq = 10000 then
+              int_freq <= 10000;
+            else
+              int_freq <= int_freq - 10000;
+            end if;
             when others =>
-              temp_freq <= int_freq;
+              int_freq <= int_freq;
           end case;
-          if temp_freq < 20 then
-            int_freq  <= 20;
-            temp_freq <= 20;
-          else if temp_freq < 0 then
-            temp_freq <= int_freq;
-          else
-            int_freq <= temp_freq;
           end if;
         end if;
       end if;
-    end if;
-  end if;
   end process val_change;
 
   pos_change : process (left, right, clear) is --! Process to change the position of the frequency
   begin
-    if en = '0' then --! Only change the position if the display is enabled
+    if en = '0' then
       if clear = '1' then
         int_pos <= 2;
       else
