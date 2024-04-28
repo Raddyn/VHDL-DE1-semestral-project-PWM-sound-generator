@@ -55,6 +55,8 @@ begin
         right <= '0';
         increment <= '0';
         decrement <= '0';
+        wait for 10 ns;
+        en <= '1';
 
         -- Reset generation
         -- EDIT: Check that clear is really your reset signal
@@ -64,25 +66,16 @@ begin
         wait for 10 ns;
 
         -- EDIT Add stimuli here
-        en <= '1';
-        wait for 10 ns;
-        left <= '1';
-        wait for 10 ns;
+       left <= '1';
+         wait for 10 ns;    
         left <= '0';
         wait for 10 ns;
-        increment <= '1';
-        wait for 10 ns;
-        increment <= '0';
-        wait for 10 ns;
-        right <= '1';
-        wait for 10 ns;
-        right <= '0';
-        wait for 10 ns;
-        decrement <= '1';
-        wait for 10 ns;
-        decrement <= '0';
-        wait for 10 ns;
-        en <= '0';
+        for i in 0 to 50 loop
+            increment <= '1';
+            wait for 10 ns;
+            increment <= '0';
+            wait for 10 ns;
+        end loop;
         wait;
     end process;
 
