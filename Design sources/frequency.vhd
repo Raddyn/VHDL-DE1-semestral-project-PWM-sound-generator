@@ -24,8 +24,8 @@ end entity frequency;
 
 architecture behavioral of frequency is
 
-  signal int_freq : integer := 1000;
-  signal int_pos  : integer := 0;
+  signal int_freq  : integer := 1000;
+  signal int_pos   : integer := 0;
   signal temp_freq : integer := 0; -- buffer for the frequency
 
 begin
@@ -52,7 +52,7 @@ begin
               temp_freq <= int_freq;
           end case;
           if temp_freq > 20000 then
-            int_freq <= 20000;
+            int_freq  <= 20000;
             temp_freq <= 20000;
           else
             int_freq <= temp_freq;
@@ -60,27 +60,30 @@ begin
         elsif decrement = '1' then
           case int_pos is
             when 0 =>
-            temp_freq <= int_freq - 1;
+              temp_freq <= int_freq - 1;
             when 1 =>
-            temp_freq <= int_freq - 10;
+              temp_freq <= int_freq - 10;
             when 2 =>
-            temp_freq <= int_freq - 100;
+              temp_freq <= int_freq - 100;
             when 3 =>
-            temp_freq <= int_freq - 1000;
+              temp_freq <= int_freq - 1000;
             when 4 =>
-            temp_freq <= int_freq - 10000;
+              temp_freq <= int_freq - 10000;
             when others =>
-            temp_freq <= int_freq;
+              temp_freq <= int_freq;
           end case;
           if temp_freq < 20 then
-            int_freq <= 20;
+            int_freq  <= 20;
             temp_freq <= 20;
+          else if temp_freq < 0 then
+            temp_freq <= int_freq;
           else
             int_freq <= temp_freq;
           end if;
         end if;
       end if;
     end if;
+  end if;
   end process val_change;
 
   pos_change : process (left, right, clear) is --! Process to change the position of the frequency
@@ -96,7 +99,7 @@ begin
             int_pos <= int_pos + 1;
           end if;
         elsif right = '1' then
-          if int_pos - 1 = -1 then
+          if int_pos - 1 =- 1 then
             int_pos <= 4;
           else
             int_pos <= int_pos - 1;
