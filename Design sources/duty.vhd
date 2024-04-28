@@ -6,8 +6,6 @@ entity duty is
   (
     clear : in std_logic; --! Clear the display
     en    : in std_logic; --! Enable the display
-    --        clk : in      std_logic;                    --! Clock signal
-    --        freq_bin : out    std_logic_vector(14 downto 0);  --! duty of the display
     pos_duty  : out std_logic_vector(4 downto 0); --! Current working position
     left      : in std_logic; --! Move to the left
     right     : in std_logic; --! Move to the right
@@ -96,4 +94,4 @@ begin
   out_1  <= std_logic_vector(to_unsigned(int_duty mod 10, 4));
   out_10 <= std_logic_vector(to_unsigned((int_duty / 10) mod 10, 4));
 
-end behavioral
+end behavioral;
