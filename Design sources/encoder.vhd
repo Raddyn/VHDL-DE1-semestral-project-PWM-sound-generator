@@ -49,7 +49,7 @@ begin
     clean   => count(1)
   );
 
-  process (count(0), count(1))
+  int_det : process (count(0), count(1))
   begin
     case count is -- Convert the count to an integer
       when "00" =>
@@ -62,21 +62,28 @@ begin
         count_int <= 3;
       when others =>
         count_int <= 0;
-    end case;
-    if count_int = 0 then -- Determine the direction of rotation
-      if previous_count_int = 3 then
-        Up   <= '1';
-        down <= '0';
-      elsif previous_count_int = 1 then
-        Up   <= '0';
-        down <= '1';
-      else
-        Up   <= '0';
-        down <= '0';
-      end if;
-      previous_count_int <= count_int; -- Update the previous count
-    end if;
+    end case;  
 end process;
+
+  direction : process (count_int)
+  begin
+    if count_int /= previous_count_int then
+      if count_int = 0 and previous_count_int = 3 then
+        Up <= '1';
+        down <= '0';
+        previous_count_int <= count_int;
+      elsif count_int = 3 and previous_count_int = 0 then
+        Up <= '0';
+        down <= '1';
+        previous_count_int <= count_int;
+      else
+        Up <= '0';
+        down <= '0';
+        previous_count_int <= count_int;
+      end if;
+    end if;
+  end process;
+ 
 -- Assign the input signals
 count(0) <= data_A;
 count(1) <= data_B;
