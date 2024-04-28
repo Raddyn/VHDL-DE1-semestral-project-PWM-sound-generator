@@ -13,7 +13,7 @@ architecture tb of tb_duty is
     component duty
         port (clear     : in std_logic;
               en        : in std_logic;
-              pos       : out std_logic_vector (4 downto 0);
+              pos_duty       : out std_logic_vector (4 downto 0);
               left      : in std_logic;
               right     : in std_logic;
               increment : in std_logic;
@@ -25,7 +25,7 @@ architecture tb of tb_duty is
 
     signal clear     : std_logic;
     signal en        : std_logic;
-    signal pos       : std_logic_vector (4 downto 0);
+    signal pos_duty       : std_logic_vector (4 downto 0);
     signal left      : std_logic;
     signal right     : std_logic;
     signal increment : std_logic;
@@ -38,7 +38,7 @@ begin
     dut : duty
     port map (clear     => clear,
               en        => en,
-              pos       => pos,
+              pos_duty       => pos_duty,
               left      => left,
               right     => right,
               increment => increment,
