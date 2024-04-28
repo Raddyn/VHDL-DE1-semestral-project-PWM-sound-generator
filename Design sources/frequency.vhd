@@ -85,12 +85,12 @@ begin
         if left = '1' then
           int_pos <= int_pos + 1;
           if int_pos > 4 then
-            int_pos <= 4;
+            int_pos <= 0;
           end if;
         elsif right = '1' then
           int_pos <= int_pos - 1;
           if int_pos < 0 then
-            int_pos <= 0;
+            int_pos <= 4;
           end if;
         end if;
       end if;
