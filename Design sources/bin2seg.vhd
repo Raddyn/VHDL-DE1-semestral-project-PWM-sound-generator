@@ -70,8 +70,12 @@ begin
         seg <= "0000000";
       when x"9" =>
         seg <= "0000100";
+      when x"d" =>
+        seg <= "1000010";
+      when x"F" =>
+        seg <= "0111000";
       when others =>
-        seg <= "1111111";    --segment turned off for duty mode
+        seg <= "0110000";    
     end case;
 
   end if;    
