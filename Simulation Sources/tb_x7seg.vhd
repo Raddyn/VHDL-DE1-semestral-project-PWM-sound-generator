@@ -1,6 +1,15 @@
 -- Testbench automatically generated online
 -- at https://vhdl.lapinoo.net
--- Generation date : 23.4.2024 19:34:15 UTC
+-- Generation date : 29.4.2024 08:09:55 UTC
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity tb_x7seg is
+end tb_x7seg;
+-- Testbench automatically generated online
+-- at https://vhdl.lapinoo.net
+-- Generation date : 29.4.2024 08:22:05 UTC
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -18,11 +27,10 @@ architecture tb of tb_x7seg is
               out_100       : in std_logic_vector (3 downto 0);
               out_1000      : in std_logic_vector (3 downto 0);
               out_10000     : in std_logic_vector (3 downto 0);
-              pos_mulx_freq : out std_logic_vector (4  downto 0);
+              pos_mulx_freq : out std_logic_vector (7  downto 0);
               seg           : out std_logic_vector (6 downto 0);
               out_1_duty    : in std_logic_vector (3 downto 0);
               out_10_duty   : in std_logic_vector (3 downto 0);
-              pos_mulx_duty : out std_logic_vector (1  downto 0);
               sw            : in std_logic;
               position_in   : in std_logic_vector (4 downto 0));
     end component;
@@ -34,11 +42,10 @@ architecture tb of tb_x7seg is
     signal out_100       : std_logic_vector (3 downto 0);
     signal out_1000      : std_logic_vector (3 downto 0);
     signal out_10000     : std_logic_vector (3 downto 0);
-    signal pos_mulx_freq : std_logic_vector (4  downto 0);
+    signal pos_mulx_freq : std_logic_vector (7  downto 0);
     signal seg           : std_logic_vector (6 downto 0);
     signal out_1_duty    : std_logic_vector (3 downto 0);
     signal out_10_duty   : std_logic_vector (3 downto 0);
-    signal pos_mulx_duty : std_logic_vector (1  downto 0);
     signal sw            : std_logic;
     signal position_in   : std_logic_vector (4 downto 0);
 
@@ -60,7 +67,6 @@ begin
               seg           => seg,
               out_1_duty    => out_1_duty,
               out_10_duty   => out_10_duty,
-              pos_mulx_duty => pos_mulx_duty,
               sw            => sw,
               position_in   => position_in);
 
@@ -69,6 +75,7 @@ begin
 
     -- EDIT: Check that clk is really your main clock signal
     clk <= TbClock;
+
     stimuli : process
     begin
         -- EDIT Adapt initialization as needed
@@ -91,9 +98,9 @@ begin
 
         -- EDIT Add stimuli here
         wait for 100 * TbPeriod;
-        position_in <= "00100";
+        --position_in <= "00100";
         wait for 100 * TbPeriod;
-        position_in <= "10000";
+        --position_in <= "10000";
         -- Stop the clock and hence terminate the simulation
        -- TbSimEnded <= '1';
         wait;
