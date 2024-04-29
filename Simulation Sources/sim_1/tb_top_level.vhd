@@ -44,7 +44,7 @@ architecture tb of tb_top_level is
     signal CG        : std_logic;
     signal DP        : std_logic;
 
-    constant TbPeriod : time := 1000 ns; -- EDIT Put right period here
+    constant TbPeriod : time := 10 ns; -- EDIT Put right period here
     signal TbClock : std_logic := '0';
     signal TbSimEnded : std_logic := '0';
 
@@ -82,16 +82,22 @@ begin
 
         -- Reset generation
         -- EDIT: Check that btn_clr is really your reset signal
-        btn_clr <= '0';
-        wait for 10 ns;
         btn_clr <= '1';
         wait for 10 ns;
+        btn_clr <= '0';
+        wait for 1000 ns;
+        btn_left <= '1';
+        wait for 10ns;
+        btn_left <= '0';
+
+        
+        
 
         -- EDIT Add stimuli here
         wait for 100 * TbPeriod;
 
         -- Stop the clock and hence terminate the simulation
-        TbSimEnded <= '1';
+        --TbSimEnded <= '1';
         wait;
     end process;
 
