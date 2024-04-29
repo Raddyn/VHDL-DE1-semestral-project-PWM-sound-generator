@@ -33,7 +33,7 @@ begin
   val_change : process (increment, decrement, clear) is --! Process to change the value of the frequency
   begin
     if en = '0' then
-      if clear = '1' then
+      if clear = '0' then
         int_freq <= 1000;
       else
         if increment = '1' then
@@ -120,7 +120,7 @@ begin
   pos_change : process (left, right, clear) is --! Process to change the position of the frequency
   begin
     if en = '0' then
-      if clear = '1' then
+      if clear = '0' then
         int_pos <= 2;
       else
         if left = '1' then

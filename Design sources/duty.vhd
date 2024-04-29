@@ -26,7 +26,7 @@ begin
 
   val_change : process (increment, decrement, clear) is --! Process to change the value of the duty
   begin
-    if clear = '1' then
+    if clear = '0' then
       int_duty <= 50;
     else
       if increment = '1' then
@@ -72,7 +72,7 @@ begin
   pos_change : process (left, right, clear) is --! Process to change the position of the duty
   begin
     if en = '1' then
-      if clear = '1' then
+      if clear = '0' then
         int_pos <= 1;
       else
         if left = '1' then
