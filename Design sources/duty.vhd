@@ -92,7 +92,7 @@ begin
     end if;
   end process pos_change;
 
-  process (int_pos) is
+  process (int_pos) is -- Process to change the position of the duty for further processing
   begin
     case int_pos is
       when 0 =>

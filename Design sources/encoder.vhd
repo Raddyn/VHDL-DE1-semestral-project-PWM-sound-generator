@@ -16,7 +16,7 @@ entity encoder is
 end encoder;
 -- Define the architecture of the encoder module
 architecture Behavioral of encoder is
--- Add the debounce component
+  -- Add the debounce component
   component debounce is
     port
     (
@@ -30,7 +30,7 @@ architecture Behavioral of encoder is
   signal count              : std_logic_vector(1 downto 0) := "00";
   signal count_int          : integer                      := 0;
   signal previous_count_int : integer                      := 0;
--- Instantiate the debounce component
+  -- Instantiate the debounce component
 begin
   bnc1 : debounce port map
   (
@@ -40,15 +40,16 @@ begin
     bouncey => data_A,
     clean   => count(0)
   );
-  bnc2 : debounce port map
-    (
-    clk     => clk,
-    rst     => '0',
-    en      => '1',
-    bouncey => data_B,
-    clean   => count(1)
+  bnc2 : debounce port
+  map
+  (
+  clk     => clk,
+  rst     => '0',
+  en      => '1',
+  bouncey => data_B,
+  clean   => count(1)
   );
-
+  -- Convert the count to an integer
   int_det : process (count(0), count(1))
   begin
     case count is -- Convert the count to an integer
@@ -62,30 +63,30 @@ begin
         count_int <= 3;
       when others =>
         count_int <= 0;
-    end case;  
-end process;
-
+    end case;
+  end process;
+-- Detect the direction of the encoder
   direction : process (count_int)
   begin
     if count_int /= previous_count_int then
       if count_int = 0 and previous_count_int = 3 then
-        Up <= '1';
-        down <= '0';
+        Up                 <= '1';
+        down               <= '0';
         previous_count_int <= count_int;
       elsif count_int = 3 and previous_count_int = 0 then
-        Up <= '0';
-        down <= '1';
+        Up                 <= '0';
+        down               <= '1';
         previous_count_int <= count_int;
       else
-        Up <= '0';
-        down <= '0';
+        Up                 <= '0';
+        down               <= '0';
         previous_count_int <= count_int;
       end if;
     end if;
   end process;
- 
--- Assign the input signals
-count(0) <= data_A;
-count(1) <= data_B;
+
+  -- Assign the input signals
+  count(0) <= data_A;
+  count(1) <= data_B;
 
 end Behavioral;

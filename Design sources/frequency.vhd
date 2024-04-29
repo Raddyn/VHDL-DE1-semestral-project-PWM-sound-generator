@@ -140,7 +140,7 @@ begin
     end if;
   end process pos_change;
 
-  process (int_pos) is
+  process (int_pos) is --! Process to change the position of the frequency for furher processing
   begin
     case int_pos is
       when 0 =>
@@ -157,7 +157,8 @@ begin
         pos <= "00000";
     end case;
   end process;
-
+  
+-- Output for the next stage
   out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
   out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
   out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
