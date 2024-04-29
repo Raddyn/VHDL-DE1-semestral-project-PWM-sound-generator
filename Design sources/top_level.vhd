@@ -33,7 +33,8 @@ entity top_level is
     CE        : out   std_logic;                     --! Cathod E
     CF        : out   std_logic;                     --! Cathod F
     CG        : out   std_logic;                     --! Cathod G
-    DP        : out   std_logic                    --! Decimal point
+    DP        : out   std_logic;                   --! Decimal point 
+    clk_chk: out std_logic
   );
 end top_level;
 
@@ -150,6 +151,16 @@ architecture Behavioral of top_level is
      
      end component;
     
+    
+    component debounce
+     port(
+           clk : in STD_LOGIC;
+           rst : in STD_LOGIC;
+           en : in STD_LOGIC;
+           bouncey : in STD_LOGIC;
+           clean : out STD_LOGIC
+           );
+    end component;
     -- SIGNALS 
 	
 	signal s_clr: std_logic; --redundant? 
@@ -171,6 +182,9 @@ architecture Behavioral of top_level is
     signal s_pos: std_logic_vector (4 downto 0);
     signal s_pos_duty: std_logic_vector (4 downto 0);
     signal s_pos_out: std_logic_vector (4 downto 0);
+    signal s_left: std_logic;
+    signal s_right: std_logic;
+
 begin
 
  -- component instantiation
@@ -193,13 +207,40 @@ begin
         Down => s_dec
     
     );
+    dbl: debounce
+    port map (
+        clk => tclk,
+        rst => '0',
+        en => '1',
+        bouncey => btn_left,
+        clean => s_left
+    );
+    
+    dbr: debounce
+    port map (
+        clk => tclk,
+        rst => '0',
+        en => '1',
+        bouncey => btn_right,
+        clean => s_right
+    );
+       
+    dbc: debounce
+    port map (
+        clk => tclk,
+        rst => '0',
+        en => '1',
+        bouncey => btn_clr,
+        clean => s_clr
+    );   
+       
         
 	d1: duty
 	port map (
-	   clear => btn_clr,
+	   clear => s_clr,
 	   en => mode,
-	   left => btn_left,
-	   right => btn_right,
+	   left => s_left,
+	   right => s_right,
 	   increment => s_inc,
 	   decrement => s_dec,
 	   out_1 => s_out_duty1,
@@ -209,10 +250,10 @@ begin
 	
 	f1: frequency 
 	port map (
-	   clear => btn_clr,
+	   clear => s_clr,
 	   en => mode,
-	   left => btn_left,
-	   right => btn_right,
+	   left => s_left,
+	   right => s_right,
 	   increment => s_inc,
 	   decrement => s_dec,
 	   out_1 => s_out1,
@@ -227,7 +268,7 @@ begin
     DISP: x7seg 
     port map (
        clk => tclk,
-       rst => btn_clr,
+       rst => s_clr,
        out_1 => s_out1,
 	   out_10 => s_out10,
 	   out_100 => s_out100,
@@ -274,6 +315,10 @@ begin
     
     );
     
+   
+    
+    
+    clk_chk <= tclk;
     DP <= '1';
     process (SW_MODE)
     begin
