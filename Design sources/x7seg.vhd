@@ -10,12 +10,11 @@ entity x7seg is
            out_100 : in std_logic_vector(3 downto 0);
            out_1000 : in std_logic_vector(3 downto 0);
            out_10000 : in std_logic_vector(3 downto 0);
-           pos_mulx_freq : out std_logic_vector(4  downto 0);
+           pos_mulx_freq : out std_logic_vector(7  downto 0);
            seg   : out std_logic_vector(6 downto 0);
            
            out_1_duty     : in std_logic_vector(3 downto 0); 
            out_10_duty    : in std_logic_vector(3 downto 0);
-           pos_mulx_duty : out std_logic_vector(1  downto 0);
            
            sw : in std_logic;
            position_in : in std_logic_vector(4 downto 0)            --new
@@ -80,6 +79,17 @@ begin
             pulse => per_mulx
             );
             
+    switch_seg : component counter
+       generic map(
+            N_COUNTS => 6
+            )
+        port map(
+            clk => clk,
+            rst => rst,
+            en => per_mulx,
+            count => position
+            );
+                        
      position_period_clock : component clock_enable         --new
         generic map(
             N_PERIODS => 15               -- settings of blinking position
@@ -92,7 +102,7 @@ begin
             
      position_period_counter : component counter
        generic map(
-            N_COUNTS => 4
+            N_COUNTS => 5
             )
         port map(
             clk => clk,
@@ -101,16 +111,7 @@ begin
             count => position_period
             );
 
-    switch_seg : component counter
-       generic map(
-            N_COUNTS => 5
-            )
-        port map(
-            clk => clk,
-            rst => rst,
-            en => per_mulx,
-            count => position
-            );
+   
     
 
 
@@ -121,117 +122,131 @@ begin
             if (rst = '1') then
                 seg_data <= "0000";
             elsif (sw = '0') then
-            --some for F
+            
                 case position is
                     when "000" =>
                         if (position_in = "00001") then                 --copy
-                           if(position_period < "010") then             --add F or D for mode
+                           if(position_period < "111") then             --add F or D for mode
                             seg_data <= "1111";
-                            pos_mulx_freq <= "11110";
+                            pos_mulx_freq <= "11111110";
                            else 
                             seg_data <= out_1;
-                            pos_mulx_freq <= "11110";
+                            pos_mulx_freq <= "11111110";
                             end if;
                             
                         else
                             seg_data <= out_1;
-                            pos_mulx_freq <= "11110";
+                            pos_mulx_freq <= "11111110";
                         end if;
                     
                     when "001" =>
                         if (position_in = "00010") then                 --copy
                            if(position_period < "010") then
                             seg_data <= "1111";
-                            pos_mulx_freq <= "11101";
+                            pos_mulx_freq <= "11111101";
                            else
                             seg_data <= out_10;
-                            pos_mulx_freq <= "11101";
+                            pos_mulx_freq <= "11111101";
                            end if;
                          else
                             seg_data <= out_10;
-                            pos_mulx_freq <= "11101";
+                            pos_mulx_freq <= "11111101";
                         end if;
                     
                     when "010" =>
                         if (position_in = "00100") then                 --copy
                            if(position_period < "010") then
                             seg_data <= "1111";
-                            pos_mulx_freq <= "11011";
+                            pos_mulx_freq <= "11111011";
                            else
                             seg_data <= out_100;
-                            pos_mulx_freq <= "11011";
+                            pos_mulx_freq <= "11111011";
                            end if;
                          else
                             seg_data <= out_100;
-                            pos_mulx_freq <= "11011";
+                            pos_mulx_freq <= "11111011";
                         end if;
                     
                     when "011" =>
                         if (position_in = "01000") then                 --copy
                            if(position_period < "010") then
                             seg_data <= "1111";
-                            pos_mulx_freq <= "10111";
+                            pos_mulx_freq <= "11110111";
                            else
                             seg_data <= out_1000;
-                            pos_mulx_freq <= "10111";
+                            pos_mulx_freq <= "11110111";
                            end if;
                          else
                             seg_data <= out_1000;
-                            pos_mulx_freq <= "10111";
+                            pos_mulx_freq <= "11110111";
                         end if;
                     
                     when "100" =>
                         if (position_in = "10000") then                 --copy
                            if(position_period < "010") then
                             seg_data <= "1111";
-                            pos_mulx_freq <= "01111";
+                            pos_mulx_freq <= "11101111";
                            else
                             seg_data <= out_10000;
-                            pos_mulx_freq <= "01111";
+                            pos_mulx_freq <= "11101111";
                            end if;
                          else
                             seg_data <= out_10000;
-                            pos_mulx_freq <= "01111";
+                            pos_mulx_freq <= "11101111";
                         end if;
+                        
+                    when "101" =>
+                            seg_data <= x"F";
+                            pos_mulx_freq <= "01111111";
+                        
+                        
                     when others =>
-                        seg_data<= "0000";
-                        pos_mulx_freq <= "11111";
+                        seg_data<= "1011";
+                        pos_mulx_freq <= "11111110";
                     
                 end case;
                     
             else
-            --some to set D
+            --some kokotina to set D
                 case position is
-                    when "001" =>
+                    when "000" =>
                         if (position_in = "00001") then                 --copy
                            if(position_period < "010") then
                             seg_data <= "1111";
-                            pos_mulx_freq <= "11110";
+                            pos_mulx_freq <= "11111110";
                            else
                             seg_data <= out_1_duty;
-                            pos_mulx_freq <= "11110";
+                            pos_mulx_freq <= "11111110";
                            end if;
                          else
                             seg_data <= out_1_duty;
-                            pos_mulx_freq <= "11110";
+                            pos_mulx_freq <= "11111110";
                         end if;
                     
-                    when "011" =>
+                    when "010" =>
                         if (position_in = "00010") then                 --copy
                            if(position_period < "010") then
                             seg_data <= "1111";
-                            pos_mulx_freq <= "11101";
+                            pos_mulx_freq <= "11111101";
                            else
                             seg_data <= out_10_duty;
-                            pos_mulx_freq <= "11101";
+                            pos_mulx_freq <= "11111101";
                            end if;
                          else
                             seg_data <= out_10_duty;
-                            pos_mulx_freq <= "11101";
+                            pos_mulx_freq <= "11111101";
                         end if;
+                        
+                    when "100" =>
+                        
+                            seg_data <= x"d";
+                            pos_mulx_freq <= "01111111";
+                        
+                     
                     
                     when others =>
-                        seg_data <= "1111";
+                        seg_data <= "1011";
+                        pos_mulx_freq <= "11111110";
                         
                     
                     
