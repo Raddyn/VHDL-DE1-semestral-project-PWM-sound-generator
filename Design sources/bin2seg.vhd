@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 16.04.2024 15:52:45
--- Design Name: 
--- Module Name: bin2seg - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -74,6 +53,8 @@ begin
         seg <= "1000010";
       when x"F" =>
         seg <= "0111000";
+      when x"A" =>
+        seg <= "1111111";
       when others =>
         seg <= "0110000";    
     end case;
