@@ -34,7 +34,7 @@ use ieee.std_logic_unsigned.all;
 
 entity counter is
     generic(
-        N_COUNTS : integer
+        N_COUNTS : integer := 5
     );
     Port ( clk : in STD_LOGIC;
            rst : in STD_LOGIC;
