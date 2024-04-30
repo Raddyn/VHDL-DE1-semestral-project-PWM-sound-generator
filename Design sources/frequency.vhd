@@ -41,76 +41,201 @@ begin
             when 0 =>
               if int_freq + 1 >= 20000 then
                 int_freq <= 20000;
+                out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+                out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+                out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+                out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+                out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
               else
                 int_freq <= int_freq + 1;
+                out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+                out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+                out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+                out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+                out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
               end if;
             when 1 =>
             if int_freq + 10 >= 20000 then
               int_freq <= 20000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq + 10;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when 2 =>
             if int_freq + 100 >= 20000 then
               int_freq <= 20000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq + 100;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when 3 =>
             if int_freq + 1000 >= 20000 then
               int_freq <= 20000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq + 1000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when 4 =>
             if int_freq + 10000 >= 20000 then
               int_freq <= 20000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq + 10000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when others =>
               int_freq <= int_freq;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
           end case;
         elsif decrement = '1' then
           case int_pos is
             when 0 =>
             if int_freq - 1 <= 20 then
               int_freq <= 20;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq - 1;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when 1 =>
             if int_freq - 10 <= 20 then
               int_freq <= 20;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else 
               int_freq <= int_freq - 10;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when 2 =>
             if int_freq - 100 <= 20 then
               int_freq <= 20;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             elsif int_freq = 100 then
               int_freq <= 100;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq - 100;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when 3 =>
             if int_freq - 1000 <= 20 then
               int_freq <= 20;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             elsif int_freq = 1000 then
               int_freq <= 1000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq - 1000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when 4 =>
             if int_freq - 10000 <= 20 then
               int_freq <= 20;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             elsif int_freq = 10000 then
               int_freq <= 10000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             else
               int_freq <= int_freq - 10000;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
             end if;
             when others =>
               int_freq <= int_freq;
+              out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+              out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+              out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+              out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+              out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
           end case;
           end if;
         end if;
@@ -157,11 +282,4 @@ begin
         pos <= "00000";
     end case;
   end process;
-  
--- Output for the next stage
-  out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
-  out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
-  out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
-  out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
-  out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
 end behavioral;
