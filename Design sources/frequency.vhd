@@ -121,7 +121,7 @@ begin
   begin
     if en = '0' then
       if clear = '0' then
-        int_pos <= 2;
+        int_pos <= 3;
       else
         if left = '1' then
           if int_pos + 1 = 5 then
