@@ -1,6 +1,6 @@
 -- Testbench automatically generated online
 -- at https://vhdl.lapinoo.net
--- Generation date : 17.4.2024 08:49:30 UTC
+-- Generation date : 30.4.2024 15:12:03 UTC
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -50,14 +50,13 @@ begin
         rst <= '1';
         wait for 100 ns;
         rst <= '0';
-        en <= '1';
         wait for 100 ns;
 
         -- EDIT Add stimuli here
         wait for 100 * TbPeriod;
-
+        en <= '1';
         -- Stop the clock and hence terminate the simulation
-        TbSimEnded <= '1';
+       -- TbSimEnded <= '1';
         wait;
     end process;
 
