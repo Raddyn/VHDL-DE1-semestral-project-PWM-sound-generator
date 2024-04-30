@@ -29,7 +29,7 @@ begin
     if clear = '0' then
       int_duty <= 50;
     else
-      if increment = '1' then
+      if increment = '0' then
         case int_pos is
           when 0 =>
             if int_duty + 1 > 99 then
@@ -46,7 +46,7 @@ begin
           when others =>
             int_duty <= int_duty;
         end case;
-      elsif decrement = '1' then
+      elsif decrement = '0' then
         case int_pos is
           when 0 =>
             if int_duty - 1 < 1 then
@@ -75,13 +75,13 @@ begin
       if clear = '0' then
         int_pos <= 1;
       else
-        if left = '1' then
+        if left = '0' then
           if int_pos + 1 = 2 then
             int_pos <= 0;
           else
             int_pos <= int_pos + 1;
           end if;
-        elsif right = '1' then
+        elsif right = '0' then
           if int_pos - 1 =- 1 then
             int_pos <= 1;
           else

@@ -61,51 +61,51 @@ begin
   stimuli : process
   begin
     -- EDIT Adapt initialization as needed
-    en <= '1';
-    clear <= '0';
-    left      <= '0';
-    right     <= '0';
-    increment <= '0';
-    decrement <= '0';
+    en        <= '1';
+    clear     <= '1';
+    left      <= '1';
+    right     <= '1';
+    increment <= '1';
+    decrement <= '1';
     wait for 5 ns;
-    en    <= '0';
+    en <= '0';
+    wait for 5 ns;
+    clear <= '0';
     wait for 5 ns;
     clear <= '1';
     wait for 5 ns;
-    clear <= '0';
-    wait for 5 ns;
 
-    decrement <= '1';
-    wait for 5 ns;
     decrement <= '0';
     wait for 5 ns;
+    decrement <= '1';
+    wait for 5 ns;
 
-    left <= '1';
-    wait for 5 ns;
     left <= '0';
     wait for 5 ns;
     left <= '1';
     wait for 5 ns;
     left <= '0';
+    wait for 5 ns;
+    left <= '1';
     for i in 0 to 30 loop
-      wait for 5 ns;
-      increment <= '1';
       wait for 5 ns;
       increment <= '0';
+      wait for 5 ns;
+      increment <= '1';
     end loop;
     wait for 5 ns;
-    right <= '1';
-    wait for 5 ns;
     right <= '0';
     wait for 5 ns;
     right <= '1';
     wait for 5 ns;
     right <= '0';
+    wait for 5 ns;
+    right <= '1';
     for i in 0 to 30 loop
       wait for 5 ns;
-      decrement <= '1';
-      wait for 5 ns;
       decrement <= '0';
+      wait for 5 ns;
+      decrement <= '1';
     end loop;
 
     wait;

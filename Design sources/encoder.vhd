@@ -7,7 +7,7 @@ use ieee.numeric_std.all;
 entity encoder is
   port
   (
-    clk    : in std_logic; -- Clock signal
+    clk_e    : in std_logic; -- Clock signal
     data_A : in std_logic; -- Input signal A
     data_B : in std_logic; -- Input signal B
     Up     : out std_logic; -- Up signal
@@ -30,11 +30,13 @@ architecture Behavioral of encoder is
   signal count              : std_logic_vector(1 downto 0) := "00";
   signal count_int          : integer                      := 0;
   signal previous_count_int : integer                      := 0;
+  signal inc                : std_logic                    := '1';
+  signal dec                : std_logic                    := '1';
   -- Instantiate the debounce component
 begin
   bnc1 : debounce port map
   (
-    clk     => clk,
+    clk     => clk_e,
     rst     => '0',
     en      => '1',
     bouncey => data_A,
@@ -43,7 +45,7 @@ begin
   bnc2 : debounce port
   map
   (
-  clk     => clk,
+  clk     => clk_e,
   rst     => '0',
   en      => '1',
   bouncey => data_B,
@@ -65,21 +67,21 @@ begin
         count_int <= 0;
     end case;
   end process;
--- Detect the direction of the encoder
+  -- Detect the direction of the encoder
   direction : process (count_int)
   begin
     if count_int /= previous_count_int then
       if count_int = 0 and previous_count_int = 3 then
-        Up                 <= '1';
-        down               <= '0';
+        inc                <= '1';
+        dec                <= '0';
         previous_count_int <= count_int;
       elsif count_int = 3 and previous_count_int = 0 then
-        Up                 <= '0';
-        down               <= '1';
+        inc                <= '0';
+        dec                <= '1';
         previous_count_int <= count_int;
       else
-        Up                 <= '0';
-        down               <= '0';
+        inc                <= '0';
+        dec                <= '0';
         previous_count_int <= count_int;
       end if;
     end if;
@@ -88,5 +90,8 @@ begin
   -- Assign the input signals
   count(0) <= data_A;
   count(1) <= data_B;
+  -- Assign the output signals
+  Up   <= inc;
+  down <= dec;
 
 end Behavioral;
