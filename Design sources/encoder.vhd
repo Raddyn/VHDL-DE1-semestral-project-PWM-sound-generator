@@ -27,7 +27,7 @@ architecture Behavioral of encoder is
       clean   : out std_logic -- Output signal
     );
   end component;
-  signal count              : std_logic_vector(1 downto 0) := "00";
+  signal count              : std_logic_vector(1 downto 0) := "11";
   signal count_int          : integer                      := 0;
   signal previous_count_int : integer                      := 0;
   signal inc                : std_logic                    := '1';
@@ -55,13 +55,13 @@ begin
   int_det : process (count(0), count(1))
   begin
     case count is -- Convert the count to an integer
-      when "00" =>
-        count_int <= 0;
-      when "01" =>
-        count_int <= 1;
       when "11" =>
-        count_int <= 2;
+        count_int <= 0;
       when "10" =>
+        count_int <= 1;
+      when "00" =>
+        count_int <= 2;
+      when "01" =>
         count_int <= 3;
       when others =>
         count_int <= 0;
@@ -72,16 +72,16 @@ begin
   begin
     if count_int /= previous_count_int then
       if count_int = 0 and previous_count_int = 3 then
-        inc                <= '1';
-        dec                <= '0';
-        previous_count_int <= count_int;
-      elsif count_int = 3 and previous_count_int = 0 then
         inc                <= '0';
         dec                <= '1';
         previous_count_int <= count_int;
-      else
-        inc                <= '0';
+      elsif count_int = 3 and previous_count_int = 0 then
+        inc                <= '1';
         dec                <= '0';
+        previous_count_int <= count_int;
+      else
+        inc                <= '1';
+        dec                <= '1';
         previous_count_int <= count_int;
       end if;
     end if;
