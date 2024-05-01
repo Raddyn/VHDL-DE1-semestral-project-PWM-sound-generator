@@ -101,6 +101,10 @@ begin
     right <= '0';
     wait for 5 ns;
     right <= '1';
+    wait for 5 ns;
+    clear <= '0';
+    wait for 5 ns;
+    clear <= '1';
     for i in 0 to 30 loop
       wait for 5 ns;
       decrement <= '0';
