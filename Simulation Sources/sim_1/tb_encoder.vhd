@@ -9,7 +9,7 @@ architecture Behavioral of tb_encoder is
     -- Component Declaration
     component encoder is
         port(
-            clk : in std_logic;
+            clk_e : in std_logic;
             data_A : in std_logic;
             data_B : in std_logic;
             Up : out std_logic;
@@ -29,7 +29,7 @@ begin
     -- Instantiate the encoder
     uut: encoder
         port map(
-            clk => clk_tb,
+            clk_e => clk_tb,
             data_A => data_A_tb,
             data_B => data_B_tb,
             Up => Up_tb,
