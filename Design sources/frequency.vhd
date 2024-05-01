@@ -11,11 +11,11 @@ entity frequency is
     right     : in std_logic; --! Move to the right
     increment : in std_logic; --! Increment the frequency
     decrement : in std_logic; --! Decrement the frequency
-    out_1     : out std_logic_vector(3 downto 0); --! Output for the next stage
-    out_10    : out std_logic_vector(3 downto 0); --! Output for the next stage
-    out_100   : out std_logic_vector(3 downto 0); --! Output for the next stage
-    out_1000  : out std_logic_vector(3 downto 0); --! Output for the next stage
-    out_10000 : out std_logic_vector(3 downto 0) --! Output for the next stage
+    out_1     : out std_logic_vector(3 downto 0) := "0000"; --! Output for the next stage
+    out_10    : out std_logic_vector(3 downto 0) := "0000"; --! Output for the next stage
+    out_100   : out std_logic_vector(3 downto 0) := "0000"; --! Output for the next stage
+    out_1000  : out std_logic_vector(3 downto 0) := "0001"; --! Output for the next stage
+    out_10000 : out std_logic_vector(3 downto 0) := "0000" --! Output for the next stage
   );
 
 end entity frequency;
@@ -32,7 +32,12 @@ begin
   begin
     if en = '0' then
       if clear = '0' then
-        int_freq <= 1000;
+        int_freq  <= 1000;
+        out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
+        out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
+        out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
+        out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
+        out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
       else
         if increment = '0' then
           case int_pos is
