@@ -26,6 +26,7 @@ begin
 
   val_change : process (increment, decrement, clear) is --! Process to change the value of the duty
   begin
+    if en = '1' then
     if clear = '0' then
       int_duty <= 50;
     else
@@ -67,6 +68,7 @@ begin
         end case;
       end if;
     end if;
+    end if;
   end process val_change;
 
   pos_change : process (left, right, clear) is --! Process to change the position of the duty
@@ -103,7 +105,11 @@ begin
         pos_duty <= "00000";
     end case;
   end process;
+  
+  duty_out : process (int_duty) is -- Process to output the duty
+  begin
   out_1  <= std_logic_vector(to_unsigned(int_duty mod 10, 4));
   out_10 <= std_logic_vector(to_unsigned((int_duty / 10) mod 10, 4));
+end process duty_out;
 
 end behavioral;
