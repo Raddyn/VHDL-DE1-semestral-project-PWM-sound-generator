@@ -124,23 +124,26 @@ This allows for either more coarse or finer frequency tuning. When the end is re
 Mode change (data showing on 2 positions instead of 5)
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/5a52632d-f5e8-4c35-8e87-071d73644559)
 Comparison of clock with the display refresh rate 
-(jiná perioda než v realitě z důvodu náročných simulací)
+(period differs from reality due to the difficulty of simulation)
+
 ### Clock Enable 
- - Porty
-- clk	in	std_logic	Hlavní hodiny
-- rst	in	std_logic	Hlavní reset
-- pulse	out	std_logic	Impuls, s nastavitelnou periodou
-- Schéma
+ - Ports
+- clk	in	std_logic	Main clock
+- rst	in	std_logic	Main reset
+- pulse	out	std_logic	Pulse with adjustable period
+- Scheme
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/8e2e25e3-0e80-45b9-b6eb-149f152b2ce3)
-- Simulace
+- Simulation
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1bed116b-f8cd-4867-a06f-a2115e600b51)
+
 ### bin2seg
-- Porty
-- clear	in	std_logic	Vypne display
-- bin	in	std_logic_vector(3 downto 0)	Zobrazovaný znak v bineární soustavě
-- seg	out	std_logic_vector(6 downto 0)	Data jdoucí do displaye 7-segmentu
-- Schema
+- Ports
+- clear	in	std_logic	Turns off display
+- bin	in	std_logic_vector(3 downto 0)	Displayed character in binary
+- seg	out	std_logic_vector(6 downto 0)	Data flow to 7 segment display
+- Scheme
 - ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1b6e2dd1-b156-4671-a6d0-5df6a1076842)
+
 ### counter
 - Ports
 - clk	in	std_logic	Main clock
