@@ -100,30 +100,30 @@ This allows for either more coarse or finer frequency tuning. When the end is re
 
 
 ## x7seg (Jaroslav Švec)
- - Porty
-  - clk	in	std_logic	Hlavní hodiny 
-  - rst	in	std_logic	Hlavní reset
-  - out_1	in	std_logic_vector(3 downto 0)	Data pro jednoty
-  - out_10	in	std_logic_vector(3 downto 0)	Data pro desítky
-  - out_100	in	std_logic_vector(3 downto 0)	Data pro stovky 
-  - out_1000	in	std_logic_vector(3 downto 0)	Data pro tisíce
-  -out_10000	in	std_logic_vector(3 downto 0)	Data pro desetitisíce
-  - out_1_duty	in	std_logic_vector(3 downto 0)	Data pro jednotky duty cyclu
-  - out_10_duty	in	std_logic_vector(3 downto 0)	Data pro desítky duty cyclu
-  -sw	in	std_logic	nastavování frekvence nebo duty cyclu
-  - position_in	in	std_logic_vector(4 downto 0)	Určování která pozice bude měnit hodnotu
-  - pos_mulx_freq	out	std_logic_vector(7 downto 0	Vektor pro ovládání společné elektrody displaye
-  - seg	out	std_logic_vector(6 downto 0)	Data jdoucí do displaye 7-segmentu
+ - Ports
+  - clk	in	std_logic Main clock
+  - rst	in	std_logic Main reset
+  - out_1	in	std_logic_vector(3 downto 0)	Selected frequency - units
+  - out_10	in	std_logic_vector(3 downto 0)	Selected frequency - tens
+  - out_100	in	std_logic_vector(3 downto 0)	Selected frequency - hundreds
+  - out_1000	in	std_logic_vector(3 downto 0)	Selected frequency - thousands
+  - out_10000	in	std_logic_vector(3 downto 0)	Selected frequency - tens of thousands
+  - out_1_duty	in	std_logic_vector(3 downto 0)	Selected duty cycle - units
+  - out_10_duty	in	std_logic_vector(3 downto 0)	Selected duty cycle - tens
+  - sw	in	std_logic	switching between frequency mode and duty cycle mode
+  - position_in	in	std_logic_vector(4 downto 0)	Switching between number positions
+  - pos_mulx_freq	out	std_logic_vector(7 downto 0)	Vector controling a common electrode of the display
+  - seg	out	std_logic_vector(6 downto 0)	Data flow for 7 segment display
 
- - Schéma
+ - Scheme
    ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/84c0b52f-4fb4-496d-be87-8665ddf796b3)
- - Simulace
+ - Simulation
    ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d9bfdbc6-fca3-42ff-8fd4-495630150823)
-    Indikace měněné pozice na jednotkách, následně stovkách
+    Indication of changed value at level of tens, then hundreds
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/b8d8a40f-9c82-4ce7-8b86-02955e60f2d2)
-Změna módu (zobrazování dat pouze na 2 pozicích)
+Mode change (data showing on 2 positions instead of 5)
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/5a52632d-f5e8-4c35-8e87-071d73644559)
-Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmentů 
+Comparison of clock with the display refresh rate 
 (jiná perioda než v realitě z důvodu náročných simulací)
 ### Clock Enable 
  - Porty
