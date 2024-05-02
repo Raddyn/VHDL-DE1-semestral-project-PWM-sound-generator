@@ -58,7 +58,7 @@ begin
                             end if;
                     when PRE_PRESSED =>
                         -- If bouncey = 1 increment counter
-                            if (bouncey = '1') then
+                            if (bouncey = '0') then
                                 sig_count <= sig_count + 1;
          
                             -- if counter = DEB_COUNT-1 go to PRESSED
