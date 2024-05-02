@@ -49,10 +49,7 @@
 ## Hardware
 
 - [Nexys A7-50T](https://digilent.com/reference/programmable-logic/nexys-a7/start)
-- [Rotary encoder]()
-- Initial CRUDE sketch
-- ![IMG_1153](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/395b58a0-7fdd-476a-a2ee-0f101e7057f6)
-- Detailed 
+- [Rotary encoder](https://en.wikipedia.org/wiki/Rotary_encoder#:~:text=A%20rotary%20encoder%2C%20also%20called,analog%20or%20digital%20output%20signals.)
 
 ## Software
 - Algorithm flowchart WIP (RADEK)
