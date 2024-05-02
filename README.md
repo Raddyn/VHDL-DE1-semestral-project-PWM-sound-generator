@@ -70,6 +70,19 @@
 - Unit tracks the position of internal cursor which can change its value by pressing either left or right input.
 This allows for either more coarse or finer frequency tuning. When the end is reached the cursor loops over.
 - Port map:
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/0d7bda4c-0345-4ff1-9e71-e07b12c745e4)
+-clear	in	std_logic	Clear the display
+-en	in	std_logic	Enable the display
+-pos	out	std_logic_vector(4 downto 0)	Current working position
+-left	in	std_logic	Move to the left
+-right	in	std_logic	Move to the right
+-increment	in	std_logic	Increment the frequency
+-decrement	in	std_logic	Decrement the frequency
+-out_1	out	std_logic_vector(3 downto 0)	Output for the next stage
+-out_10	out	std_logic_vector(3 downto 0)	Output for the next stage
+-out_100	out	std_logic_vector(3 downto 0)	Output for the next stage
+-out_1000	out	std_logic_vector(3 downto 0)	Output for the next stage
+-out_10000	out	std_logic_vector(3 downto 0)	Output for the next stage
 - Schematic:
 ## Duty (Radoslav Tomčala)
   - Controlling unit responsible for changing duty value and sending it for a further proccessing
