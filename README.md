@@ -196,7 +196,7 @@ Comparison of clock with the display refresh rate
 
 [Design source](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/blob/250f665e0e72adb011da8e0b643ef4e261352ef9/Design%20sources/pwm_module.vhd)
 
-- Scheme
+- Schematic
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/8d1407c2-77c5-402c-8565-3d6e2a73f812)
 
 
@@ -228,7 +228,7 @@ Comparison of clock with the display refresh rate
 
 [Design source](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/blob/be501989562627cded8fc61b43f4cc9f1e11ddce/Design%20sources/pwmV2.vhd)
 
-- Scheme
+- Schematic
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/f2c91e4f-8bb3-4244-a1c4-783126a33414)
 
 
