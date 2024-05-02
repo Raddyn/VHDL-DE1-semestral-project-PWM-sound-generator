@@ -55,7 +55,9 @@
 - [Vivado](https://www.xilinx.com/support/download.html)
 - [draw.io](https://app.diagrams.net/)
 
-## Top level (Marek Vacula
+##Software description
+
+### Top level (Marek Vacula
 - Purpose: connect and wire blocks together. Hardware/software interface.
 - Component declaration and instantiation
 - Variables are tied to contraints file
@@ -65,7 +67,7 @@
 - Schematic
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
 
-## Frequency (Radoslav Tomčala)
+### Frequency (Radoslav Tomčala)
 - Controlling unit responsible for changing frequency and sending it for a further proccessing
 - Frequency is changed by reciving a input signal from rotary encoder. Value change is dependent on which type of input is recived and the momentary cursor position. Frequency is outputed as a five 4-bit logic vectors, each representing a separate decade. Frequency value can be set in range from 20 to 20k Hz.
 - Unit tracks the position of internal cursor which can change its value by pressing either left or right input.
@@ -85,14 +87,14 @@ This allows for either more coarse or finer frequency tuning. When the end is re
 -out_1000	out	std_logic_vector(3 downto 0)	Output for the next stage
 -out_10000	out	std_logic_vector(3 downto 0)	Output for the next stage
 - Schematic:
-## Duty (Radoslav Tomčala)
+### Duty (Radoslav Tomčala)
   - Controlling unit responsible for changing duty value and sending it for a further proccessing
   - Works in a same way as frequency
   - Value can be set from 1 to 99
   - Port map:
   - Schematic:
 
-## Mode selector (Marek Vacula)
+### Mode selector (Marek Vacula)
 - simple MUX to send a signal to current variable data to display
 - Port map
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/094598d2-8d4e-4574-a0ab-4b12f7e95aa8)
@@ -100,7 +102,7 @@ This allows for either more coarse or finer frequency tuning. When the end is re
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/bf4fb4ef-bbd3-49d9-b5f7-a5b14537c681)
 
 
-## x7seg (Jaroslav Švec)
+### x7seg (Jaroslav Švec)
  - Ports
   - clk	in	std_logic Main clock
   - rst	in	std_logic Main reset
@@ -156,7 +158,7 @@ Comparison of clock with the display refresh rate
 - simulation
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
 
-## Top level (Marek Vacula)
+### Top level (Marek Vacula)
 - Purpose: connect and wire blocks together. Hardware/software interface.
 - Component declaration and instantiation
 - Variables are tied to contraints file
@@ -167,13 +169,13 @@ Comparison of clock with the display refresh rate
 - Schematic
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
 
-## Encoder (Radoslav Tomčala)
+### Encoder (Radoslav Tomčala)
 - Purpose: Add more tactile way to change frequency
 - [Design Source](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/blob/15700a940e5007992e64a52a5521cb2f57207b1a/Design%20sources/encoder.vhd)
 
    ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
 
-## PWM Module (Dominik Chalupka)
+### PWM Module (Dominik Chalupka)
 ### Simple PWM
 - Ports
 - clk             in  std_logic                    Clock input
@@ -203,7 +205,7 @@ Comparison of clock with the display refresh rate
 
 
 
-### Advanced
+### Advanced PWM
 - Advanced PWM, that samples and respects the signal shape (triangle, sin)
 - Issues with higher frequencies and synthesis prevented implementation
 
