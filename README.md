@@ -168,7 +168,7 @@ duty_cycle10    in  std_logic_vector(3 downto 0) Duty - tens
 pwm_out         out std_logic                    Modulated signal output
 
 - Scheme
-![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/71a7d8a1-183f-41ed-bd03-3169cc190071)
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/3dfd4cd2-49f4-4205-b708-20bb23a5103d)
 
 
 - Simulation for 1kHz and 50% Duty cycle
