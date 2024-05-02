@@ -209,6 +209,9 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - freq_in10000    in unsigned(3 downto 0)     Frequency - tens of thousands
 - pwm_out         out STD_LOGIC               Modulated signal output
 
+
+[Design source](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/blob/be501989562627cded8fc61b43f4cc9f1e11ddce/Design%20sources/pwmV2.vhd)
+
 - Scheme
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/f2c91e4f-8bb3-4244-a1c4-783126a33414)
 
