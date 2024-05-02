@@ -35,7 +35,7 @@
 
 ## Software description
 
-### Top level (Marek Vacula
+### Top level (Marek Vacula)
 - Purpose: connect and wire blocks together. Hardware/software interface.
 - Component declaration and instantiation
 - Variables are tied to contraints file
