@@ -175,7 +175,7 @@ Comparison of clock with the display refresh rate
 
    ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
 
-### PWM Module (Dominik Chalupka)
+### PWM Module (Dominik Chalupka and Radoslav Tomčala)
 ### Simple PWM
 - Ports
 - clk             in  std_logic                    Clock input
