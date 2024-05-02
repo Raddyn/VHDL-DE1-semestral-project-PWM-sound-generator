@@ -34,8 +34,9 @@ entity top_level is
     CF        : out   std_logic;                     --! Cathod F
     CG        : out   std_logic;                     --! Cathod G
     DP        : out   std_logic;                   --! Decimal point 
-    clk_chk: out std_logic;
-    JA: in std_logic_vector (1 downto 0)
+    --clk_chk: out std_logic;
+    JA: in std_logic_vector (1 downto 0);
+    JB: out std_logic_vector(6 downto 2)
   );
 end top_level;
 
@@ -319,8 +320,14 @@ begin
    
     
     
-    clk_chk <= tclk;
+   -- clk_chk <= tclk;
     DP <= '1';
+
+    JB(2) <= btn_left;
+    JB(3) <= btn_right;
+    JB(4) <= btn_clr;
+    JB(5) <= s_left;
+    JB(6) <= s_right;
     process (SW_MODE)
     begin
         if SW_MODE = '0' then
