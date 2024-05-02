@@ -127,7 +127,11 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - Schematic
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
    
-
+## Evaluation
+- Each component works well on its own
+- Top level seems to be wired well, yet...
+- ...Implementation failed
+- Display works, but does not switch position
 
 ## How to use
 
