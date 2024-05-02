@@ -53,15 +53,17 @@ begin
   direction : process (clk_e)
   begin
   if falling_edge (clk_e) then
-    if (count(0) /= previous_count(0)) and (count(1) = previous_count(1)) then
+    if count(0) = '1' and count(1) = '1' then
+    if count = "11" and previous_count = "10" then
       up <= '0';
       down <= '1';
-    elsif (count(0) = previous_count(0)) and (count(1) /= previous_count(1)) then
+    elsif count = "11" and previous_count = "01" then
       up <= '1';
       down <= '0';
     else
       up <= '1';
       down <= '1';
+    end if;
     end if;
 end if;
 end process;
@@ -69,7 +71,8 @@ end process;
 prev_change : process (clk_e)
 begin
   if rising_edge (clk_e) then
-    previous_count <= count;
+  previous_count(0) <= count(0);
+  previous_count(1) <= count(1);
   end if;
 end process;
 end Behavioral;
