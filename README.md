@@ -83,6 +83,11 @@ Změna módu (zobrazování dat pouze na 2 pozicích)
 Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmentů 
 (jiná perioda než v realitě z důvodu náročných simulací)
 
+## Top level (Marek Vacula
+
+- Schematic
+ ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
+
 
 
 
