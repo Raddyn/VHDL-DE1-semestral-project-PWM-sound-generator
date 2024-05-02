@@ -82,6 +82,17 @@ Změna módu (zobrazování dat pouze na 2 pozicích)
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/5a52632d-f5e8-4c35-8e87-071d73644559)
 Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmentů 
 (jiná perioda než v realitě z důvodu náročných simulací)
+# Clock Enable 
+ - Porty
+- clk	in	std_logic	Hlavní hodiny
+- rst	in	std_logic	Hlavní reset
+- pulse	out	std_logic	Impuls, s nastavitelnou periodou
+- Schéma
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/8e2e25e3-0e80-45b9-b6eb-149f152b2ce3)
+- Simulace
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1bed116b-f8cd-4867-a06f-a2115e600b51)
+
+
 
 ## Top level (Marek Vacula
 - Purpose: connect and wire blocks together. Hardware/software interface.
