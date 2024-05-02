@@ -62,9 +62,11 @@
 - Component declaration and instantiation
 - Variables are tied to contraints file
 
-- Port map  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/feddb630-654f-4436-b7ec-6f8210da3b6f)
-- Signal map:![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d08f93c6-56fa-41bb-8bf9-794f39538621)
-- Schematic
+- Port map \
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/feddb630-654f-4436-b7ec-6f8210da3b6f)
+- Signal map:\
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d08f93c6-56fa-41bb-8bf9-794f39538621)
+- Schematic\
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
 
 ### Frequency (Radoslav Tomčala)
@@ -72,7 +74,7 @@
 - Frequency is changed by reciving a input signal from rotary encoder. Value change is dependent on which type of input is recived and the momentary cursor position. Frequency is outputed as a five 4-bit logic vectors, each representing a separate decade. Frequency value can be set in range from 20 to 20k Hz.
 - Unit tracks the position of internal cursor which can change its value by pressing either left or right input.
 This allows for either more coarse or finer frequency tuning. When the end is reached the cursor loops over.
-- Port map:
+- Port map:\
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/0d7bda4c-0345-4ff1-9e71-e07b12c745e4)
 - clear	in	std_logic	Clear the display
 - en	in	std_logic	Enable the display
@@ -86,9 +88,9 @@ This allows for either more coarse or finer frequency tuning. When the end is re
 - out_100	out	std_logic_vector(3 downto 0)	Output for the next stage
 - out_1000	out	std_logic_vector(3 downto 0)	Output for the next stage
 - out_10000	out	std_logic_vector(3 downto 0)	Output for the next stage
-- Schematic:
+- Schematic:\
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/c6c388d3-d51f-4f21-9376-2890f407faea)
-- Simulation:
+- Simulation:\
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/7c67680b-23ec-4105-b334-af2a9b15f8d3)
 
 ### Duty (Radoslav Tomčala)
@@ -106,17 +108,17 @@ This allows for either more coarse or finer frequency tuning. When the end is re
 - decrement	in	std_logic	Decrement the duty
 - out_1	out	std_logic_vector(3 downto 0)	Output for the next stage
 - out_10	out	std_logic_vector(3 downto 0)	Output for the next stage
-- Schematic:
+- Schematic:\
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/392b71a5-4ebb-4ae9-89a1-c3e7cd85bb08)
-- Simulation:
+- Simulation:\
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/633da4d5-dabf-429b-b4dc-c982767bfff6)
  
 
 ### Mode selector (Marek Vacula)
 - simple MUX to send a signal to current variable data to display
-- Port map
+- Port map\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/094598d2-8d4e-4574-a0ab-4b12f7e95aa8)
-- Schematic
+- Schematic\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/bf4fb4ef-bbd3-49d9-b5f7-a5b14537c681)
 
 
@@ -136,13 +138,13 @@ This allows for either more coarse or finer frequency tuning. When the end is re
   - pos_mulx_freq	out	std_logic_vector(7 downto 0)	Vector controling a common electrode of the display
   - seg	out	std_logic_vector(6 downto 0)	Data flow for 7 segment display
 
- - Scheme
+ - Scheme\
    ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/84c0b52f-4fb4-496d-be87-8665ddf796b3)
- - Simulation
+ - Simulation\
    ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d9bfdbc6-fca3-42ff-8fd4-495630150823)
-    Indication of changed value at level of tens, then hundreds
+    Indication of changed value at level of tens, then hundreds\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/b8d8a40f-9c82-4ce7-8b86-02955e60f2d2)
-Mode change (data showing on 2 positions instead of 5)
+Mode change (data showing on 2 positions instead of 5)\
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/5a52632d-f5e8-4c35-8e87-071d73644559)
 Comparison of clock with the display refresh rate 
 (period differs from reality due to the difficulty of simulation)
@@ -152,9 +154,9 @@ Comparison of clock with the display refresh rate
 - clk	in	std_logic	Main clock
 - rst	in	std_logic	Main reset
 - pulse	out	std_logic	Pulse with adjustable period
-- Scheme
+- Scheme\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/8e2e25e3-0e80-45b9-b6eb-149f152b2ce3)
-- Simulation
+- Simulation\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1bed116b-f8cd-4867-a06f-a2115e600b51)
 
 ### bin2seg
@@ -162,7 +164,7 @@ Comparison of clock with the display refresh rate
 - clear	in	std_logic	Turns off display
 - bin	in	std_logic_vector(3 downto 0)	Displayed character in binary
 - seg	out	std_logic_vector(6 downto 0)	Data flow to 7 segment display
-- Scheme
+- Scheme\
 - ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1b6e2dd1-b156-4671-a6d0-5df6a1076842)
 
 ### counter
@@ -171,16 +173,20 @@ Comparison of clock with the display refresh rate
 - rst	in	std_logic	Main reset
 - en	in 	std_logic	enables and disables counter on demand
 - count 	in 	std_logic_vector(2 downto 0)	Binary output counting selected values
-- scheme
+- scheme\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/6ecef32f-84cc-4454-8c91-9cf7ec4f4010)
-- simulation
+- simulation\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
 
 ### Encoder (Radoslav Tomčala)
 - Purpose: Add more tactile way to change frequency
-- [Design Source](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/blob/15700a940e5007992e64a52a5521cb2f57207b1a/Design%20sources/encoder.vhd)
+- Circuit:\
+ ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
+- 
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/c74828cd-9dfe-44a9-8bd6-451f306b50f4)
 
-   ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
+
+   
 
 ### PWM Module (Dominik Chalupka and Radoslav Tomčala)
 ### Simple PWM
