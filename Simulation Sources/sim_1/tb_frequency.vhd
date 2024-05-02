@@ -1,167 +1,125 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
-use IEEE.NUMERIC_STD.all;
-entity frequency is
-  port
-  (
-    clear     : in std_logic; --! Clear the display
-    en        : in std_logic; --! Enable the display
-    pos       : out std_logic_vector(4 downto 0); --! Current working position
-    left      : in std_logic; --! Move to the left
-    right     : in std_logic; --! Move to the right
-    increment : in std_logic; --! Increment the frequency
-    decrement : in std_logic; --! Decrement the frequency
-    out_1     : out std_logic_vector(3 downto 0) := "0000"; --! Output for the next stage
-    out_10    : out std_logic_vector(3 downto 0) := "0000"; --! Output for the next stage
-    out_100   : out std_logic_vector(3 downto 0) := "0000"; --! Output for the next stage
-    out_1000  : out std_logic_vector(3 downto 0) := "0001"; --! Output for the next stage
-    out_10000 : out std_logic_vector(3 downto 0) := "0000" --! Output for the next stage
-  );
+--Testbench automatically generated online
+-- at https://vhdl.lapinoo.net
+-- Generation date : 19.4.2024 08:37:34 UTC
 
-end entity frequency;
+library ieee;
+use ieee.std_logic_1164.all;
 
-architecture behavioral of frequency is
+entity tb_frequency is
+end tb_frequency;
 
-  signal int_freq  : integer range 20 to 20000 := 1000;
-  signal int_pos   : integer range 0 to 4 := 3; -- buffer for the position
+architecture tb of tb_frequency is
+
+  component frequency
+    port
+    (
+      clear     : in std_logic;
+      en        : in std_logic;
+      pos       : out std_logic_vector (4 downto 0);
+      left      : in std_logic;
+      right     : in std_logic;
+      increment : in std_logic;
+      decrement : in std_logic;
+      out_1     : out std_logic_vector (3 downto 0);
+      out_10    : out std_logic_vector (3 downto 0);
+      out_100   : out std_logic_vector (3 downto 0);
+      out_1000  : out std_logic_vector (3 downto 0);
+      out_10000 : out std_logic_vector (3 downto 0));
+  end component;
+
+  signal clear     : std_logic;
+  signal en        : std_logic;
+  signal pos       : std_logic_vector (4 downto 0);
+  signal left      : std_logic;
+  signal right     : std_logic;
+  signal increment : std_logic;
+  signal decrement : std_logic;
+  signal out_1     : std_logic_vector (3 downto 0);
+  signal out_10    : std_logic_vector (3 downto 0);
+  signal out_100   : std_logic_vector (3 downto 0);
+  signal out_1000  : std_logic_vector (3 downto 0);
+  signal out_10000 : std_logic_vector (3 downto 0);
 
 begin
 
-  val_change : process (increment, decrement, clear) is --! Process to change the value of the frequency
-  begin
-    if en = '0' then
-      if clear = '0' then
-        int_freq  <= 1000;
-      else
-        if increment = '0' then
-          case int_pos is
-            when 0 =>
-              if int_freq + 1 >= 20000 then
-                int_freq <= 20000;
-                
-              else
-                int_freq <= int_freq + 1;
-              end if;
-            when 1 =>
-              if int_freq + 10 >= 20000 then
-                int_freq <= 20000;
-              else
-                int_freq <= int_freq + 10;
-              end if;
-            when 2 =>
-              if int_freq + 100 >= 20000 then
-                int_freq <= 20000;
-              else
-                int_freq <= int_freq + 100;
-              end if;
-            when 3 =>
-              if int_freq + 1000 >= 20000 then
-                int_freq <= 20000;
-              else
-                int_freq <= int_freq + 1000;
-              end if;
-            when 4 =>
-              if int_freq + 10000 >= 20000 then
-                int_freq <= 20000;
-              else
-                int_freq <= int_freq + 10000;
-              end if;
-            when others =>
-              int_freq <= int_freq;
-          end case;
-        elsif decrement = '0' then
-          case int_pos is
-            when 0 =>
-              if int_freq - 1 < 20 then
-                int_freq <= 20;
-              else
-                int_freq <= int_freq - 1;
-              end if;
-            when 1 =>
-              if int_freq - 10 < 20 then
-                int_freq <= 20;
-              else
-                int_freq <= int_freq - 10;
-              end if;
-            when 2 =>
-              if int_freq - 100 < 20 then
-                int_freq <= 20;
-              elsif int_freq = 100 then
-                int_freq <= 100;
-              else
-                int_freq <= int_freq - 100;
-              end if;
-            when 3 =>
-              if int_freq - 1000 < 20 then
-                int_freq <= 20;
-              elsif int_freq = 1000 then
-                int_freq <= 1000;
-              else
-                int_freq <= int_freq - 1000;
-              end if;
-            when 4 =>
-              if int_freq - 10000 < 20 then
-                int_freq <= 20;
-              elsif int_freq = 10000 then
-                int_freq <= 10000;
-              else
-                int_freq <= int_freq - 10000;
-              end if;
-            when others =>
-              int_freq <= int_freq;
-          end case;
-        end if;
-      end if;
-    end if;
-  end process val_change;
+  dut : frequency
+  port map
+  (
+    clear     => clear,
+    en        => en,
+    pos       => pos,
+    left      => left,
+    right     => right,
+    increment => increment,
+    decrement => decrement,
+    out_1     => out_1,
+    out_10    => out_10,
+    out_100   => out_100,
+    out_1000  => out_1000,
+    out_10000 => out_10000);
 
-  pos_change : process (left, right, clear) is --! Process to change the position of the frequency
+  stimuli : process
   begin
-    if en = '0' then
-      if clear = '0' then
-        int_pos <= 3;
-      else
-        if left = '0' then
-          if int_pos + 1 = 5 then
-            int_pos <= 0;
-          else
-            int_pos <= int_pos + 1;
-          end if;
-        elsif right = '0' then
-          if int_pos - 1 =- 1 then
-            int_pos <= 4;
-          else
-            int_pos <= int_pos - 1;
-          end if;
-        end if;
-      end if;
-    end if;
-  end process pos_change;
+    -- EDIT Adapt initialization as needed
+    en        <= '1';
+    clear     <= '1';
+    left      <= '1';
+    right     <= '1';
+    increment <= '1';
+    decrement <= '1';
+    wait for 5 ns;
+    en <= '0';
+    wait for 5 ns;
+    clear <= '0';
+    wait for 5 ns;
+    clear <= '1';
+    wait for 5ns;
+    right <= '0';
+    wait for 5 ns;
+    right <= '1';
+    wait for 5 ns;
+    right <= '0';
+    wait for 5 ns;
+    right <= '1';
+    wait for 5 ns;
+    right <= '0';
+    wait for 5 ns;
+    right <= '1';
+    
+    for i in 0 to 50 loop
+      wait for 5 ns;
+      increment <= '0';
+      wait for 5 ns;
+      increment <= '1';
+    end loop;
+    wait for 5 ns;
+    right <= '0';
+    wait for 5 ns;
+    right <= '1';
+    wait for 5 ns;
+    right <= '0';
+    wait for 5 ns;
+    right <= '1';
+    wait for 5 ns;
+    right <= '0';
+    wait for 5 ns;
+    right <= '1';
 
-  process (int_pos) is --! Process to change the position of the frequency for furher processing
-  begin
-    case int_pos is
-      when 0 =>
-        pos <= "00001";
-      when 1 =>
-        pos <= "00010";
-      when 2 =>
-        pos <= "00100";
-      when 3 =>
-        pos <= "01000";
-      when 4 =>
-        pos <= "10000";
-      when others =>
-        pos <= "00000";
-    end case;
+    for i in 0 to 30 loop
+      wait for 5 ns;
+      decrement <= '0';
+      wait for 5 ns;
+      decrement <= '1';
+    end loop;
+
+    wait;
   end process;
 
-  freq_out : process (int_freq) is --! Process to output the frequency
-  begin
-      out_1     <= std_logic_vector(to_unsigned(int_freq mod 10, 4));
-      out_10    <= std_logic_vector(to_unsigned((int_freq / 10) mod 10, 4));
-      out_100   <= std_logic_vector(to_unsigned((int_freq / 100) mod 10, 4));
-      out_1000  <= std_logic_vector(to_unsigned((int_freq / 1000) mod 10, 4));
-      out_10000 <= std_logic_vector(to_unsigned((int_freq / 10000) mod 10, 4));
-  end process freq_out;
-end behavioral;
+end tb;
+
+-- Configuration block below is required by some simulators. Usually no need to edit.
+
+configuration cfg_tb_frequency of tb_frequency is
+  for tb
+  end for;
+end cfg_tb_frequency;
