@@ -7,7 +7,7 @@ use ieee.numeric_std.all;
 entity encoder is
   port
   (
-    clk_e    : in std_logic; -- Clock signal
+    clk_e  : in std_logic; -- Clock signal
     data_A : in std_logic; -- Input signal A
     data_B : in std_logic; -- Input signal B
     Up     : out std_logic; -- Up signal
@@ -27,11 +27,11 @@ architecture Behavioral of encoder is
       clean   : out std_logic -- Output signal
     );
   end component;
-  signal count              : std_logic_vector(1 downto 0) := "11";
-  signal count_int          : integer                      := 0;
-  signal previous_count_int : integer                      := 0;
-  signal inc                : std_logic                    := '1';
-  signal dec                : std_logic                    := '1';
+  signal count          : std_logic_vector(1 downto 0) := "11";
+  -- signal count_int      : integer                      := 0;
+  signal previous_count : std_logic_vector(1 downto 0) := "11";
+  -- signal inc            : std_logic                    := '1';
+  -- signal dec            : std_logic                    := '1';
   -- Instantiate the debounce component
 begin
   bnc1 : debounce port map
@@ -52,43 +52,38 @@ begin
   clean   => count(1)
   );
   -- Convert the count to an integer
-  int_det : process (count(0), count(1))
-  begin
-    case count is -- Convert the count to an integer
-      when "11" =>
-        count_int <= 0;
-      when "10" =>
-        count_int <= 1;
-      when "00" =>
-        count_int <= 2;
-      when "01" =>
-        count_int <= 3;
-      when others =>
-        count_int <= 0;
-    end case;
-  end process;
+  -- int_det : process (clk_e)
+  -- begin
+  --   case count is -- Convert the count to an integer
+  --     when "11" =>
+  --       count_int <= 0;
+  --     when "10" =>
+  --       count_int <= 1;
+  --     when "00" =>
+  --       count_int <= 2;
+  --     when "01" =>
+  --       count_int <= 3;
+  --     when others =>
+  --       count_int <= 0;
+  --   end case;
+  -- end process;
   -- Detect the direction of the encoder
-  direction : process (count_int)
+  direction : process (count)
   begin
-    if count_int /= previous_count_int then
-      if count_int = 0 and previous_count_int = 3 then
-        inc                <= '0';
-        dec                <= '1';
-        previous_count_int <= count_int;
-      elsif count_int = 3 and previous_count_int = 0 then
-        inc                <= '1';
-        dec                <= '0';
-        previous_count_int <= count_int;
-      else
-        inc                <= '1';
-        dec                <= '1';
-        previous_count_int <= count_int;
-      end if;
+    if count = "11" and previous_count = "01" then
+      up <= '0';
+      down <= '1';
+    elsif count = "11" and previous_count = "10" then
+      up <= '1';
+      down <= '0';
+    else
+      up <= '1';
+      down <= '1';
     end if;
-  end process;
+end process;
 
-  -- Assign the output signals
-  Up   <= inc;
-  down <= dec;
-
+prev_change : process (clk_e)
+begin
+  previous_count <= count;
+end process;
 end Behavioral;
