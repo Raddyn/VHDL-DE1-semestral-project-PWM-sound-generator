@@ -25,6 +25,7 @@
 - mode_selector.vhd -> MAREK
 - x7seg.vhd -> JARA
 - pwm_controller.vhd -> DOMINIK, RADEK
+- pwmV2.vhd -> DOMINIK
 - nexys-a7-50t.xdc -> MAREK
 - clock.vhd -> MAREK
 
