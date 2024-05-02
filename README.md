@@ -168,13 +168,16 @@ duty_cycle10    in  std_logic_vector(3 downto 0) Duty - tens
 pwm_out         out std_logic                    Modulated signal output
 
 - Scheme
-![alt text](image.png)
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/71a7d8a1-183f-41ed-bd03-3169cc190071)
+
 
 - Simulation for 1kHz and 50% Duty cycle
-![alt text](image-1.png)
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/616e887c-6c7e-4ecf-be7c-b4250c08f9e9)
+
 
 - Simulation for 1kHz and 25% Duty cycle
-![alt text](image-2.png)
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/0680c885-4740-4d84-ac7f-64f5db35d2a1)
+
 
 ### Advanced
 - Advanced PWM, that samples and respects the signal shape (triangle, sin)
@@ -191,13 +194,16 @@ freq_in10000    in unsigned(3 downto 0)     Frequency - tens of thousands
 pwm_out         out STD_LOGIC               Modulated signal output
 
 -Scheme
-![alt text](image-5.png)
+(![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/f2c91e4f-8bb3-4244-a1c4-783126a33414)
+
 
 -Simulation for 20kHz
-![alt text](image-3.png)
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/3f5ba261-aaba-4225-aeb7-93ced3d2f7f6)
+
 
 Simulation for 500 Hz
-![alt text](image-4.png)
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/98d4c9ae-4aca-4acc-a87c-c918d102dfdb)
+
 
 
 ## Evaluation
