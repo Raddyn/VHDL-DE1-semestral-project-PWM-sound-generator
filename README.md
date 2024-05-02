@@ -157,6 +157,47 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 ## PWM Module (Dominik Chalupka)
 ### Simple PWM
 - Ports
+clk             in  std_logic                    Clock input
+freq_in1        in  std_logic_vector(3 downto 0) Frequency - units
+freq_in10       in  std_logic_vector(3 downto 0) Frequency - tens
+freq_in100      in  std_logic_vector(3 downto 0) Frequency - hundreds
+freq_in1000     in  std_logic_vector(3 downto 0) Frequency - thousands
+freq_in10000    in  std_logic_vector(3 downto 0) Frequency - tens of thousands
+duty_cycle1     in  std_logic_vector(3 downto 0) Duty - units
+duty_cycle10    in  std_logic_vector(3 downto 0) Duty - tens
+pwm_out         out std_logic                    Modulated signal output
+
+- Scheme
+![alt text](image.png)
+
+- Simulation for 1kHz and 50% Duty cycle
+![alt text](image-1.png)
+
+- Simulation for 1kHz and 25% Duty cycle
+![alt text](image-2.png)
+
+### Advanced
+- Advanced PWM, that samples and respects the signal shape (triangle, sin)
+- Issues with higher frequencies and synthesis prevented implementation
+
+- Ports:
+clk             in std_logic                Clock input
+rst             in std_logic                Reset input   
+freq_in1        in unsigned(3 downto 0)     Frequency - units
+freq_in10       in unsigned(3 downto 0)     Frequency - tens
+freq_in100      in unsigned(3 downto 0)     Frequency - hundreds
+freq_in1000     in unsigned(3 downto 0)     Frequency - thousands
+freq_in10000    in unsigned(3 downto 0)     Frequency - tens of thousands
+pwm_out         out STD_LOGIC               Modulated signal output
+
+-Scheme
+![alt text](image-5.png)
+
+-Simulation for 20kHz
+![alt text](image-3.png)
+
+Simulation for 500 Hz
+![alt text](image-4.png)
 
 
 ## Evaluation
