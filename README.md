@@ -13,9 +13,9 @@
 
 ## Team members
 
- - 246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts, documentation, rotary encoder
+ - 246958 - Radoslav Tomčala -> responsible for main design, frequency, duty calculation blocks, flowcharts, documentation,PWM proof of concept, rotary encoder and auxiliary hardware
  - 246955 - Jaroslav Švec -> responsible for 8x7seg display, counters, simulations
- - 246960 - Marek Vacula -> responsible for top level, mode select, simulations, README+component documentation, GitHub implementation, contraints file
+ - 246960 - Marek Vacula -> responsible for main design, top level, mode select, simulations, README+component documentation, GitHub implementation, contraints file
  - 253225 - Dominik Chalupka -> responsible for PWM, documentation 
 
 ## File responsibility:
@@ -32,14 +32,12 @@
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
 - [Constraints file](https://raw.githubusercontent.com/Digilent/digilent-xdc/master/Nexys-A7-50T-Master.xdc)
 - [Project assignment](https://github.com/tomas-fryza/vhdl-course/tree/master/lab8-project)
-- [Rotary encoder](https://github.com/Yourigh/Rotary-encoder-VHDL-design)
  
 ## Features
 - Switch input determines if frequency or duty cycle is to be altered through a mode selector block
 - Frequency and duty cycle displayed on 7 segment disp.
 - Current display position selected using buttons, flicker as indicator 
 - Frequency or duty cycle selected using rotary encoder (or buttons) 
-- (optional QoL) LEDs indicate current frequency at all times
 
 - signal generation formula: n_clk = freq_clock/(bit_sound_sig*freq_sound)
 -- freq_sound ... frequency of the wanted sound
@@ -55,6 +53,30 @@
 - Algorithm flowchart WIP (RADEK)
 - [Vivado](https://www.xilinx.com/support/download.html)
 - [draw.io](https://app.diagrams.net/)
+
+## Top level (Marek Vacula
+- Purpose: connect and wire blocks together. Hardware/software interface.
+- Component declaration and instantiation
+- Variables are tied to contraints file
+
+- Port map  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/feddb630-654f-4436-b7ec-6f8210da3b6f)
+- Signal map:![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d08f93c6-56fa-41bb-8bf9-794f39538621)
+- Schematic
+ ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
+
+## Frequency (Radoslav Tomčala)
+- Controlling unit responsible for changing frequency and sending it for a further proccessing
+- Frequency is changed by reciving a input signal from rotary encoder. Value change is dependent on which type of input is recived and the momentary cursor position. Frequency is outputed as a five 4-bit logic vectors, each representing a separate decade. Frequency value can be set in range from 20 to 20k Hz.
+- Unit tracks the position of internal cursor which can change its value by pressing either left or right input.
+This allows for either more coarse or finer frequency tuning. When the end is reached the cursor loops over.
+- Port map:
+- Schematic:
+## Duty (Radoslav Tomčala)
+  - Controlling unit responsible for changing duty value and sending it for a further proccessing
+  - Works in a same way as frequency
+  - Value can be set from 1 to 99
+  - Port map:
+  - Schematic:
 
 ## Mode selector (Marek Vacula)
 - simple MUX to send a signal to current variable data to display
@@ -117,15 +139,12 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - simulace
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
 
-## Top level (Marek Vacula
-- Purpose: connect and wire blocks together. Hardware/software interface.
-- Component declaration and instantiation
-- Variables are tied to contraints file
 
-- Port map  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/feddb630-654f-4436-b7ec-6f8210da3b6f)
-- Signal map:![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d08f93c6-56fa-41bb-8bf9-794f39538621)
-- Schematic
- ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
+
+## Encoder (Radoslav Tomčala)
+- Purpose: Add more tactile way to change frequency
+
+   ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
    
 ## Evaluation
 - Each component works well on its own
@@ -142,4 +161,3 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
   5. Use clear button to reset values
   6. Current variable and its value is displayed on 7segment displays
   7. Audio signal will be played through 3.5mm jack connector
-     
