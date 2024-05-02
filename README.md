@@ -164,7 +164,7 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 
 ## Encoder (Radoslav Tomčala)
 - Purpose: Add more tactile way to change frequency
-[Design Source](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/blob/15700a940e5007992e64a52a5521cb2f57207b1a/Design%20sources/encoder.vhd)
+- [Design Source](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/blob/15700a940e5007992e64a52a5521cb2f57207b1a/Design%20sources/encoder.vhd)
 
    ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
 
