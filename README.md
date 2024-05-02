@@ -157,6 +157,56 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 ## PWM Module (Dominik Chalupka)
 ### Simple PWM
 - Ports
+- clk             in  std_logic                    Clock input
+- freq_in1        in  std_logic_vector(3 downto 0) Frequency - units
+- freq_in10       in  std_logic_vector(3 downto 0) Frequency - tens
+- freq_in100      in  std_logic_vector(3 downto 0) Frequency - hundreds
+- freq_in1000     in  std_logic_vector(3 downto 0) Frequency - thousands
+- freq_in10000    in  std_logic_vector(3 downto 0) Frequency - tens of thousands
+- duty_cycle1     in  std_logic_vector(3 downto 0) Duty - units
+- duty_cycle10    in  std_logic_vector(3 downto 0) Duty - tens
+- pwm_out         out std_logic                    Modulated signal output
+
+- Scheme
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/8d1407c2-77c5-402c-8565-3d6e2a73f812)
+
+
+
+- Simulation for 1kHz and 50% Duty cycle
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/b990bea6-499c-468c-9569-452268adc9d3)
+
+
+
+- Simulation for 1kHz and 25% Duty cycle
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/b603ead6-7c73-410d-93dc-b2bee3e0db6e)
+
+
+
+### Advanced
+- Advanced PWM, that samples and respects the signal shape (triangle, sin)
+- Issues with higher frequencies and synthesis prevented implementation
+
+- Ports:
+- clk             in std_logic                Clock input
+- rst             in std_logic                Reset input   
+- freq_in1        in unsigned(3 downto 0)     Frequency - units
+- freq_in10       in unsigned(3 downto 0)     Frequency - tens
+- freq_in100      in unsigned(3 downto 0)     Frequency - hundreds
+- freq_in1000     in unsigned(3 downto 0)     Frequency - thousands
+- freq_in10000    in unsigned(3 downto 0)     Frequency - tens of thousands
+- pwm_out         out STD_LOGIC               Modulated signal output
+
+- Scheme
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/f2c91e4f-8bb3-4244-a1c4-783126a33414)
+
+
+- Simulation for 20 kHz
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/3f5ba261-aaba-4225-aeb7-93ced3d2f7f6)
+
+
+- Simulation for 500 Hz
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/98d4c9ae-4aca-4acc-a87c-c918d102dfdb)
+
 
 
 ## Evaluation
