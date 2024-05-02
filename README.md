@@ -176,7 +176,8 @@ pwm_out         out std_logic                    Modulated signal output
 
 
 - Simulation for 1kHz and 25% Duty cycle
-![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/0680c885-4740-4d84-ac7f-64f5db35d2a1)
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/b603ead6-7c73-410d-93dc-b2bee3e0db6e)
+
 
 
 ### Advanced
