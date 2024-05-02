@@ -53,8 +53,8 @@
 
 ## Software
 - Algorithm flowchart WIP (RADEK)
-- [Vivado] (https://www.xilinx.com/support/download.html)
-- [draw.io] (https://app.diagrams.net/)
+- [Vivado](https://www.xilinx.com/support/download.html)
+- [draw.io](https://app.diagrams.net/)
 
 ## x7seg (Jaroslav Švec)
  - Porty
