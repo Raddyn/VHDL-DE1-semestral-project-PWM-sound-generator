@@ -109,6 +109,12 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - simulace
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
 
+## Mode selector (Marek Vacula)
+- simple MUX to send a signal to current variable data to display
+- Port map
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/094598d2-8d4e-4574-a0ab-4b12f7e95aa8)
+- Schematic
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/bf4fb4ef-bbd3-49d9-b5f7-a5b14537c681)
 
 ## Top level (Marek Vacula
 - Purpose: connect and wire blocks together. Hardware/software interface.
