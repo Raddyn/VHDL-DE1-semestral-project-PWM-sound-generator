@@ -61,7 +61,7 @@
 
 ## x7seg (Jaroslav Švec)
  - Porty
-clk	in	std_logic	Hlavní hodiny
+clk	in	std_logic	Hlavní hodiny \n
 rst	in	std_logic	Hlavní reset
 out_1	in	std_logic_vector(3 downto 0)	Data pro jednoty
 out_10	in	std_logic_vector(3 downto 0)	Data pro desítky
