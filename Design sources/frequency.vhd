@@ -23,7 +23,7 @@ end entity frequency;
 architecture behavioral of frequency is
 
   signal int_freq  : integer := 1000;
-  signal int_pos   : integer := 0;
+  signal int_pos   : integer range 0 to 4 := 3; -- buffer for the position
   signal temp_freq : integer := 0; -- buffer for the frequency
 
 begin
