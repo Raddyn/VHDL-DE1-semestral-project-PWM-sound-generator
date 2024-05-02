@@ -82,7 +82,7 @@ Změna módu (zobrazování dat pouze na 2 pozicích)
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/5a52632d-f5e8-4c35-8e87-071d73644559)
 Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmentů 
 (jiná perioda než v realitě z důvodu náročných simulací)
-# Clock Enable 
+### Clock Enable 
  - Porty
 - clk	in	std_logic	Hlavní hodiny
 - rst	in	std_logic	Hlavní reset
