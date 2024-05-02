@@ -196,15 +196,15 @@ freq_in1000     in unsigned(3 downto 0)     Frequency - thousands
 freq_in10000    in unsigned(3 downto 0)     Frequency - tens of thousands
 pwm_out         out STD_LOGIC               Modulated signal output
 
--Scheme
+- Scheme
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/f2c91e4f-8bb3-4244-a1c4-783126a33414)
 
 
--Simulation for 20 kHz
+- Simulation for 20 kHz
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/3f5ba261-aaba-4225-aeb7-93ced3d2f7f6)
 
 
-Simulation for 500 Hz
+- Simulation for 500 Hz
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/154025342/98d4c9ae-4aca-4acc-a87c-c918d102dfdb)
 
 
