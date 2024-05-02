@@ -19,8 +19,8 @@ end entity duty;
 
 architecture behavioral of duty is
 
-  signal int_duty : integer := 50;
-  signal int_pos  : integer := 1;
+  signal int_duty : integer range 1 to 99 := 50;
+  signal int_pos  : integer range 0 to 1 := 1;
 
 begin
 
