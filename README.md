@@ -1,6 +1,5 @@
 # VHDL-DE1-semestral-project-PWM-sound-generator
-## TO-DO:
-
+## TO-DO (deprecated)
 - Find sources, test function of PWM module -> DOMINIK
 - configure constraints file -> MAREK
 - Rotary encoder -> RADEK
@@ -10,7 +9,7 @@
 - TO-DO management -> MAREK
 - schematics -> RADEK
 - clock -> MAREK
-
+- mode selector -> MAREK
 
 ## File responsibility:
 - top_level.vhd -> MAREK
@@ -20,55 +19,26 @@
 - x7seg.vhd -> JARA
 - pwm_controller.vhd -> DOMINIK, RADEK
 - nexys-a7-50t.xdc -> MAREK
-- clock.vhd -> 
+- clock.vhd -> MAREK
 
-## Top level organization
-- component declaration
-  - encoder Y
-  - 7seg Y
-  - duty Y
-  - freq Y
-  - pwm_module Y
-  - clock Y
-
-- component instantiation
-  - encoder Y
-  - 7seg Y
-  - duty Y
-  - freq Y
-  - pwm_module N
-  - clock Y
-
-- signals
-  - s_clr             currently unused, clear mapped directly to BTN_C
-  - audio_out                        pwm_module -> audio jack
-  - LED signal          !maybe delete
-  - clk_en      
-  - s_inc                          rotary encoder -> freq AND duty
-  - s_dec                                 -||-
-  - s_out1 - s_out10000               freq AND duty -> 7seg AND pwm_module
-  - s_data_A                          rotary encoder input -> rotary encoder output
-  - s_data_B                          rotary encoder input -> rotary encoder output
-
-## Links
+## Links & References
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
 - [Constraints file](https://raw.githubusercontent.com/Digilent/digilent-xdc/master/Nexys-A7-50T-Master.xdc)
 - [Project assignment](https://github.com/tomas-fryza/vhdl-course/tree/master/lab8-project)
 - [Rotary encoder](https://github.com/Yourigh/Rotary-encoder-VHDL-design)
 ## Team members
 
-246958 - Radoslav Tomčala -> responsible for ()\
-246955 - Jaroslav Švec -> responsible for ()\
-246960 - Marek Vacula -> responsible for ()\
-253225 - Dominik Chalupka -> responsible for ()
+246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts
+246955 - Jaroslav Švec -> responsible for 8x7seg display, counters, simulations
+246960 - Marek Vacula -> responsible for top level, simulations, README documentation, GitHub implementation
+253225 - Dominik Chalupka -> responsible for PWM, documentation of components
 ## Description
 
-- To be added
 ## Features
-- Switch input determines if frequency or duty cycle is to be altered
-- Frequency or (and?) duty cycle displayed on 7 segment disp.
+- Switch input determines if frequency or duty cycle is to be altered through a mode selector block
+- Frequency and duty cycle displayed on 7 segment disp.
 - Current display position selected using buttons, flicker as indicator 
-- Frequency or duty cycle selected using rotary encoder (or buttons?) 
+- Frequency or duty cycle selected using rotary encoder (or buttons) 
 - (optional QoL) LEDs indicate current frequency at all times
 
 - signal generation formula: n_clk = freq_clock/(bit_sound_sig*freq_sound)
@@ -82,13 +52,50 @@
 - [Rotary encoder]()
 - Initial CRUDE sketch
 - ![IMG_1153](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/395b58a0-7fdd-476a-a2ee-0f101e7057f6)
+- Detailed 
 
 ## Software
+- Algorithm flowchart WIP (RADEK)
+- [Vivado] (https://www.xilinx.com/support/download.html)
+- [draw.io] (https://app.diagrams.net/)
 
-- To be added
+## x7seg (Jaroslav Švec)
+ - Porty
+clk	in	std_logic	Hlavní hodiny
+rst	in	std_logic	Hlavní reset
+out_1	in	std_logic_vector(3 downto 0)	Data pro jednoty
+out_10	in	std_logic_vector(3 downto 0)	Data pro desítky
+out_100	in	std_logic_vector(3 downto 0)	Data pro stovky 
+out_1000	in	std_logic_vector(3 downto 0)	Data pro tisíce
+out_10000	in	std_logic_vector(3 downto 0)	Data pro desetitisíce
+out_1_duty	in	std_logic_vector(3 downto 0)	Data pro jednotky duty cyclu
+out_10_duty	in	std_logic_vector(3 downto 0)	Data pro desítky duty cyclu
+sw	in	std_logic	nastavování frekvence nebo duty cyclu
+position_in	in	std_logic_vector(4 downto 0)	Určování která pozice bude měnit hodnotu
+pos_mulx_freq	out	std_logic_vector(7 downto 0	Vektor pro ovládání společné elektrody displaye
+seg	out	std_logic_vector(6 downto 0)	Data jdoucí do displaye 7-segmentu
+
+ - Schéma
+   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/84c0b52f-4fb4-496d-be87-8665ddf796b3)
+ - Simulace
+   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d9bfdbc6-fca3-42ff-8fd4-495630150823)
+    Indikace měněné pozice na jednotkách, následně stovkách
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/b8d8a40f-9c82-4ce7-8b86-02955e60f2d2)
+Změna módu (zobrazování dat pouze na 2 pozicích)
+ ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/5a52632d-f5e8-4c35-8e87-071d73644559)
+Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmentů 
+(jiná perioda než v realitě z důvodu náročných simulací)
+
+
+
+
+
+
 ## How to use
 
-- to be added
-## References
-- [PWM Controller](https://vhdlwhiz.com/pwm-controller/)
-- 
+  1. Power-up Nexys A7 50-T board
+  2. Select variable to modify through SW1. High -> duty cycle, Low-> frequency
+  3. Using left and right buttons, select position/order to modify
+  4. Tilt rotary encoder to increment or decrement value of chosen variable
+  5. Use clear button to reset values
+  6. 
