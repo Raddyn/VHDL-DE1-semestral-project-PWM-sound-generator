@@ -139,13 +139,21 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - simulace
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
 
+## Top level (Marek Vacula
+- Purpose: connect and wire blocks together. Hardware/software interface.
+- Component declaration and instantiation
+- Variables are tied to contraints file
+
+- Port map  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/feddb630-654f-4436-b7ec-6f8210da3b6f)
+- Signal map:![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d08f93c6-56fa-41bb-8bf9-794f39538621)
+- Schematic
+ ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
+
+## PWM Module (Dominik Chalupka)
+### Simple PWM
+- Ports
 
 
-## Encoder (Radoslav Tomčala)
-- Purpose: Add more tactile way to change frequency
-
-   ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
-   
 ## Evaluation
 - Each component works well on its own
 - Top level seems to be wired well, yet...
