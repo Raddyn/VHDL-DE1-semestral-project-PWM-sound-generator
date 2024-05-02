@@ -11,6 +11,13 @@
 - clock -> MAREK
 - mode selector -> MAREK
 
+## Team members
+
+ - 246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts
+ - 246955 - Jaroslav Švec -> responsible for 8x7seg display, counters, simulations
+ - 246960 - Marek Vacula -> responsible for top level, simulations, README documentation, GitHub implementation
+ - 253225 - Dominik Chalupka -> responsible for PWM, documentation of components
+
 ## File responsibility:
 - top_level.vhd -> MAREK
 - frequency.vhd -> RADEK
@@ -26,14 +33,7 @@
 - [Constraints file](https://raw.githubusercontent.com/Digilent/digilent-xdc/master/Nexys-A7-50T-Master.xdc)
 - [Project assignment](https://github.com/tomas-fryza/vhdl-course/tree/master/lab8-project)
 - [Rotary encoder](https://github.com/Yourigh/Rotary-encoder-VHDL-design)
-## Team members
-
-246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts
-246955 - Jaroslav Švec -> responsible for 8x7seg display, counters, simulations
-246960 - Marek Vacula -> responsible for top level, simulations, README documentation, GitHub implementation
-253225 - Dominik Chalupka -> responsible for PWM, documentation of components
-## Description
-
+ 
 ## Features
 - Switch input determines if frequency or duty cycle is to be altered through a mode selector block
 - Frequency and duty cycle displayed on 7 segment disp.
