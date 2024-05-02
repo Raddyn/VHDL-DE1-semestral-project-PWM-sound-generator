@@ -142,14 +142,14 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - Schema
 - ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1b6e2dd1-b156-4671-a6d0-5df6a1076842)
 ### counter
-- Porty
-- clk	in	std_logic	Hlavní hodiny
-- rst	in	std_logic	Hlavní reset
-- en	in 	std_logic	Cílené vypínání a zapínání counteru
-- count 	in 	std_logic_vector(2 downto 0)	Bineární výstup, který počítá do zadané hodnoty
-- schema
+- Ports
+- clk	in	std_logic	Main clock
+- rst	in	std_logic	Main reset
+- en	in 	std_logic	enables and disables counter on demand
+- count 	in 	std_logic_vector(2 downto 0)	Binary output counting selected values
+- scheme
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/6ecef32f-84cc-4454-8c91-9cf7ec4f4010)
-- simulace
+- simulation
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
 
 ## Top level (Marek Vacula)
