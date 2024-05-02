@@ -1,33 +1,10 @@
 # VHDL-DE1-semestral-project-PWM-sound-generator
-## TO-DO (deprecated)
-- Find sources, test function of PWM module -> DOMINIK
-- configure constraints file -> MAREK
-- Rotary encoder -> RADEK
-- Configuration of 7seg.vhd, mainly position of each display -> JARA
-- Rough sketch of hardware, algorithm flowchart, top_level -> RADEK, MAREK
-- Documentation -> MAREK, RADEK
-- TO-DO management -> MAREK
-- schematics -> RADEK
-- clock -> MAREK
-- mode selector -> MAREK
 
 ## Team members
-
  - 246958 - Radoslav Tomčala -> responsible for main design, frequency, duty calculation blocks, flowcharts, documentation,PWM proof of concept, rotary encoder and auxiliary hardware
  - 246955 - Jaroslav Švec -> responsible for 8x7seg display, counters, simulations
  - 246960 - Marek Vacula -> responsible for main design, top level, mode select, simulations, README+component documentation, GitHub implementation, contraints file
  - 253225 - Dominik Chalupka -> responsible for PWM, documentation 
-
-## File responsibility:
-- top_level.vhd -> MAREK
-- frequency.vhd -> RADEK
-- duty.vhd -> RADEK
-- mode_selector.vhd -> MAREK
-- x7seg.vhd -> JARA
-- pwm_module.vhd -> DOMINIK, RADEK
-- pwmV2.vhd -> DOMINIK
-- nexys-a7-50t.xdc -> MAREK
-- clock.vhd -> MAREK
 
 ## Links & References
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
