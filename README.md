@@ -149,6 +149,11 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - Schematic
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
 
+## Encoder (Radoslav Tomčala)
+- Purpose: Add more tactile way to change frequency
+
+   ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
+
 ## PWM Module (Dominik Chalupka)
 ### Simple PWM
 - Ports
