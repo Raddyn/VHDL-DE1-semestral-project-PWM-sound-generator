@@ -13,9 +13,9 @@
 
 ## Team members
 
- - 246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts
+ - 246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts, documentation
  - 246955 - Jaroslav Švec -> responsible for 8x7seg display, counters, simulations
- - 246960 - Marek Vacula -> responsible for top level, simulations, README documentation, GitHub implementation
+ - 246960 - Marek Vacula -> responsible for top level, simulations, README documentation, GitHub implementation, contraints file
  - 253225 - Dominik Chalupka -> responsible for PWM, documentation of components
 
 ## File responsibility:
@@ -84,14 +84,13 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 (jiná perioda než v realitě z důvodu náročných simulací)
 
 ## Top level (Marek Vacula
-- Purpose: connect and wire blocks together
+- Purpose: connect and wire blocks together. Hardware/software interface.
+- Variables are tied to contraints file
 - Port map
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/feddb630-654f-4436-b7ec-6f8210da3b6f)
 - Schematic
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
-
-
-
+   
 
 
 
