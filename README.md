@@ -250,9 +250,9 @@ Comparison of clock with the display refresh rate
 ## How to use
 
   1. Power-up Nexys A7 50-T board
-  2. Select variable to modify through SW1. High -> duty cycle, Low-> frequency
-  3. Using left and right buttons, select position/order to modify
-  4. Tilt rotary encoder to increment or decrement value of chosen variable
+  2. Select variable to modify through Switch 1 (SW1). Up (HIGH) -> duty cycle, Down(LOW)-> frequency
+  3. Using left and right buttons, select number position/order to modify
+  4. Turn rotary encoder to increment or decrement value of chosen variable
   5. Use clear button to reset values
-  6. Current variable and its value is displayed on 7segment displays
+  6. Current variable, frequency or duty cycle, and its value is displayed on 7segment displays
   7. Audio signal will be played through 3.5mm jack connector
