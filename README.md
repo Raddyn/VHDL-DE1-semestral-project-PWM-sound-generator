@@ -126,7 +126,12 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
 - Signal map:![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d08f93c6-56fa-41bb-8bf9-794f39538621)
 - Schematic
  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/fb9ce06e-5a06-4dd7-b6e9-123c62d282d2)
-   
+
+## PWM Module (Dominik Chalupka)
+### Simple PWM
+- Ports
+
+
 ## Evaluation
 - Each component works well on its own
 - Top level seems to be wired well, yet...
