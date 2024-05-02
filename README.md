@@ -13,10 +13,10 @@
 
 ## Team members
 
- - 246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts, documentation
+ - 246958 - Radoslav Tomčala -> responsible for frequency, duty calculation blocks, flowcharts, documentation, rotary encoder
  - 246955 - Jaroslav Švec -> responsible for 8x7seg display, counters, simulations
- - 246960 - Marek Vacula -> responsible for top level, simulations, README documentation, GitHub implementation, contraints file
- - 253225 - Dominik Chalupka -> responsible for PWM, documentation of components
+ - 246960 - Marek Vacula -> responsible for top level, mode select, simulations, README+component documentation, GitHub implementation, contraints file
+ - 253225 - Dominik Chalupka -> responsible for PWM, documentation 
 
 ## File responsibility:
 - top_level.vhd -> MAREK
@@ -91,6 +91,23 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/8e2e25e3-0e80-45b9-b6eb-149f152b2ce3)
 - Simulace
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1bed116b-f8cd-4867-a06f-a2115e600b51)
+### bin2seg
+- Porty
+- clear	in	std_logic	Vypne display
+- bin	in	std_logic_vector(3 downto 0)	Zobrazovaný znak v bineární soustavě
+- seg	out	std_logic_vector(6 downto 0)	Data jdoucí do displaye 7-segmentu
+- Schema
+- ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1b6e2dd1-b156-4671-a6d0-5df6a1076842)
+### counter
+- Porty
+- clk	in	std_logic	Hlavní hodiny
+- rst	in	std_logic	Hlavní reset
+- en	in 	std_logic	Cílené vypínání a zapínání counteru
+- count 	in 	std_logic_vector(2 downto 0)	Bineární výstup, který počítá do zadané hodnoty
+- schema
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/6ecef32f-84cc-4454-8c91-9cf7ec4f4010)
+- simulace
+  ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
 
 
 
