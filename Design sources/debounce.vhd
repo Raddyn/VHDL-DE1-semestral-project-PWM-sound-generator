@@ -58,7 +58,7 @@ begin
                             end if;
                     when PRE_PRESSED =>
                         -- If bouncey = 1 increment counter
-                            if (bouncey = '0') then
+                            if (bouncey = '1') then
                                 sig_count <= sig_count + 1;
          
                             -- if counter = DEB_COUNT-1 go to PRESSED
@@ -109,9 +109,9 @@ begin
 --            sig_clean <= '1';
 --    end case;
     
-    sig_clean <= '1' when state = PRESSED else
-                 '1' when state = PRE_RELEASED else
-                 '0' ;
+    sig_clean <= '0' when state = PRESSED else
+                 '0' when state = PRE_RELEASED else
+                 '1' ;
     
 
     -- Assign output debounced signal
