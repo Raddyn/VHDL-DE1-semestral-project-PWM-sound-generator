@@ -51,8 +51,9 @@
 - [Rotary encoder](https://en.wikipedia.org/wiki/Rotary_encoder#:~:text=A%20rotary%20encoder%2C%20also%20called,analog%20or%20digital%20output%20signals.)
 
 ## Software
-- Algorithm flowchart WIP (RADEK)
+- [Visual Studio Code](https://code.visualstudio.com/)
 - [Vivado](https://www.xilinx.com/support/download.html)
+- [TerosHDL](https://terostechnology.github.io/terosHDLdoc/)
 - [draw.io](https://app.diagrams.net/)
 
 ## Software description
@@ -138,7 +139,7 @@ This allows for either more coarse or finer frequency tuning. When the end is re
   - pos_mulx_freq	out	std_logic_vector(7 downto 0)	Vector controling a common electrode of the display
   - seg	out	std_logic_vector(6 downto 0)	Data flow for 7 segment display
 
- - Scheme\
+ - Schematic\
    ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/84c0b52f-4fb4-496d-be87-8665ddf796b3)
  - Simulation\
    ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/d9bfdbc6-fca3-42ff-8fd4-495630150823)
@@ -154,7 +155,7 @@ Comparison of clock with the display refresh rate
 - clk	in	std_logic	Main clock
 - rst	in	std_logic	Main reset
 - pulse	out	std_logic	Pulse with adjustable period
-- Scheme\
+- Schematic\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/8e2e25e3-0e80-45b9-b6eb-149f152b2ce3)
 - Simulation\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1bed116b-f8cd-4867-a06f-a2115e600b51)
@@ -164,7 +165,7 @@ Comparison of clock with the display refresh rate
 - clear	in	std_logic	Turns off display
 - bin	in	std_logic_vector(3 downto 0)	Displayed character in binary
 - seg	out	std_logic_vector(6 downto 0)	Data flow to 7 segment display
-- Scheme\
+- Schematic\
 - ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/1b6e2dd1-b156-4671-a6d0-5df6a1076842)
 
 ### counter
@@ -173,7 +174,7 @@ Comparison of clock with the display refresh rate
 - rst	in	std_logic	Main reset
 - en	in 	std_logic	enables and disables counter on demand
 - count 	in 	std_logic_vector(2 downto 0)	Binary output counting selected values
-- scheme\
+- Schematic\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/6ecef32f-84cc-4454-8c91-9cf7ec4f4010)
 - simulation\
   ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/80957105/7ff6c433-c3be-4788-9d1c-af132b7f249d)
@@ -181,9 +182,12 @@ Comparison of clock with the display refresh rate
 ### Encoder (Radoslav Tomčala)
 - Purpose: Add more tactile way to change frequency
 - Circuit:\
- ![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
-- 
+![enc_hardw](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/1ce6ade4-f3d2-49b5-8559-934f3b667100)
+- Simulation 
 ![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/c74828cd-9dfe-44a9-8bd6-451f306b50f4)
+- Schematic\
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/61b03e8e-379b-4c77-beaa-d27c064ea69f)
+
 
 
    
