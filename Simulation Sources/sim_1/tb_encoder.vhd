@@ -53,32 +53,32 @@ begin
     begin
         -- Add your test stimulus here
         -- Example:
-        data_A_tb <= '0';
-        data_B_tb <= '0';
+        data_A_tb <= not '0';
+        data_B_tb <= not '0';
         wait for 10 ns;
-        data_A_tb <= '1';
-        data_B_tb <= '0';
+        data_A_tb <= not '1';
+        data_B_tb <= not '0';
         wait for 10 ns;
-        data_A_tb <= '1';
-        data_B_tb <= '1';
+        data_A_tb <= not '1';
+        data_B_tb <= not '1';
         wait for 10 ns;
-        data_A_tb <= '0';
-        data_B_tb <= '1';
+        data_A_tb <= not '0';
+        data_B_tb <= not '1';
         wait for 10 ns;
-        data_A_tb <= '0';
-        data_B_tb <= '0';
+        data_A_tb <= not '0';
+        data_B_tb <= not '0';
         wait for 10 ns;
-        data_A_tb <= '0';
-        data_B_tb <= '1';
+        data_A_tb <= not '0';
+        data_B_tb <= not '1';
         wait for 10 ns;
-        data_A_tb <= '1';
-        data_B_tb <= '1';
+        data_A_tb <= not '1';
+        data_B_tb <= not '1';
         wait for 10 ns;
-        data_A_tb <= '1';
-        data_B_tb <= '0';
+        data_A_tb <= not '1';
+        data_B_tb <= not '0';
         wait for 10 ns;
-        data_A_tb <= '0';
-        data_B_tb <= '0';
+        data_A_tb <= not '0';
+        data_B_tb <= not '0';
 
 
         wait;
