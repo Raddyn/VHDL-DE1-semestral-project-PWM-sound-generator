@@ -41,9 +41,9 @@ begin
     begin
         while now < 1000 ns loop
             clk_tb <= '0';
-            wait for 5 ns;
+            wait for 1 ns;
             clk_tb <= '1';
-            wait for 5 ns;
+            wait for 1 ns;
         end loop;
         wait;
     end process;
@@ -55,28 +55,28 @@ begin
         -- Example:
         data_A_tb <= not '0';
         data_B_tb <= not '0';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '1';
         data_B_tb <= not '0';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '1';
         data_B_tb <= not '1';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '0';
         data_B_tb <= not '1';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '0';
         data_B_tb <= not '0';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '0';
         data_B_tb <= not '1';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '1';
         data_B_tb <= not '1';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '1';
         data_B_tb <= not '0';
-        wait for 10 ns;
+        wait for 50 ns;
         data_A_tb <= not '0';
         data_B_tb <= not '0';
 
