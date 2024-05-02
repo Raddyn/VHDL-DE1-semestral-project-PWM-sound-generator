@@ -1,4 +1,4 @@
-![frequency](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/b83fe463-1594-48d5-aae1-d3875e84cce6)# VHDL-DE1-semestral-project-PWM-sound-generator
+# VHDL-DE1-semestral-project-PWM-sound-generator
 ## TO-DO (deprecated)
 - Find sources, test function of PWM module -> DOMINIK
 - configure constraints file -> MAREK
