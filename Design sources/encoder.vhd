@@ -87,9 +87,6 @@ begin
     end if;
   end process;
 
-  -- Assign the input signals
-  count(0) <= data_A;
-  count(1) <= data_B;
   -- Assign the output signals
   Up   <= inc;
   down <= dec;
