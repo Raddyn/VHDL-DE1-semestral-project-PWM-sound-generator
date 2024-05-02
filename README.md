@@ -103,4 +103,6 @@ Porovnání hodinového signálu s obnovovací frekvencí jednotlivých 7-segmen
   3. Using left and right buttons, select position/order to modify
   4. Tilt rotary encoder to increment or decrement value of chosen variable
   5. Use clear button to reset values
-  6. 
+  6. Current variable and its value is displayed on 7segment displays
+  7. Audio signal will be played through 3.5mm jack connector
+     
