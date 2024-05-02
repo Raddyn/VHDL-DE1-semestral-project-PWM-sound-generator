@@ -87,6 +87,10 @@ This allows for either more coarse or finer frequency tuning. When the end is re
 - out_1000	out	std_logic_vector(3 downto 0)	Output for the next stage
 - out_10000	out	std_logic_vector(3 downto 0)	Output for the next stage
 - Schematic:
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/c6c388d3-d51f-4f21-9376-2890f407faea)
+- Simulation:
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/7c67680b-23ec-4105-b334-af2a9b15f8d3)
+
 ### Duty (Radoslav Tomčala)
   - Controlling unit responsible for changing duty value and sending it for a further proccessing
   - Works in a same way as frequency
@@ -102,7 +106,11 @@ This allows for either more coarse or finer frequency tuning. When the end is re
 - decrement	in	std_logic	Decrement the duty
 - out_1	out	std_logic_vector(3 downto 0)	Output for the next stage
 - out_10	out	std_logic_vector(3 downto 0)	Output for the next stage
-  - Schematic:
+- Schematic:
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/392b71a5-4ebb-4ae9-89a1-c3e7cd85bb08)
+- Simulation:
+![image](https://github.com/Raddyn/VHDL-DE1-semestral-project-PWM-sound-generator/assets/124372068/633da4d5-dabf-429b-b4dc-c982767bfff6)
+ 
 
 ### Mode selector (Marek Vacula)
 - simple MUX to send a signal to current variable data to display
