@@ -14,7 +14,7 @@ In analogue domain, signal is continuous, in various shapes and amplitudes that 
 - [PWM controller](https://vhdlwhiz.com/pwm-controller/)
 - [Constraints file](https://raw.githubusercontent.com/Digilent/digilent-xdc/master/Nexys-A7-50T-Master.xdc)
 - [Project assignment](https://github.com/tomas-fryza/vhdl-course/tree/master/lab8-project)
-- [vhdl-course](https://github.com/tomas-fryza/vhdl-course/tree/master/solutions) used loosely for inspiration
+- [vhdl-course](https://github.com/tomas-fryza/vhdl-course/tree/master/solutions) 
 - [GitHub Copilot AI](https://github.com/features/copilot) 
  
 ## Features
