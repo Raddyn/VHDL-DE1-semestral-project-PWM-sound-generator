@@ -204,7 +204,7 @@ begin
                 end case;
                     
             else
-            --some kokotina to set D
+       
                 case position is
                     when "000" =>
                         if (position_in = "00001") then                 
