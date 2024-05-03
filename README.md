@@ -15,7 +15,7 @@ In analogue domain, signal is continuous, in various shapes and amplitudes that 
 - [Constraints file](https://raw.githubusercontent.com/Digilent/digilent-xdc/master/Nexys-A7-50T-Master.xdc)
 - [Project assignment](https://github.com/tomas-fryza/vhdl-course/tree/master/lab8-project)
 - [vhdl-course](https://github.com/tomas-fryza/vhdl-course/tree/master/solutions) 
-- [GitHub Copilot AI](https://github.com/features/copilot) 
+
  
 ## Features
 - Switch input determines if frequency or duty cycle is to be altered through a mode selector block
@@ -33,7 +33,7 @@ In analogue domain, signal is continuous, in various shapes and amplitudes that 
 - [Vivado](https://www.xilinx.com/support/download.html)
 - [TerosHDL](https://terostechnology.github.io/terosHDLdoc/)
 - [draw.io](https://app.diagrams.net/)
-
+- [GitHub Copilot AI](https://github.com/features/copilot) 
 ## Software description
 
 ### Top level (Marek Vacula)
